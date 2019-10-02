@@ -40,6 +40,16 @@ public class DataTypes {
 		System.out.println("If subtracted in the opposite order, Java still converts longVar into a double before the subtraction, giving the right answer");
 		System.out.println("\n");
 		
+		char charVar = 'f';
+		System.out.println("If we try and 'add' charVar to intVar we get:" +(charVar + intVar));
+		System.out.println("Interestingly Java seems to take the ASCII code for 'f' which is 102 and then add this number to intVar giving 107");
+		char charVar2 = 'f' + 10;
+		System.out.println("If we instead define a new character variable charVar2 as 'f + 10' the output is: " +charVar2);
+		System.out.println("This shows us Java is taking the ASCII code for f which is 102 and is adding 10 to it to get 112 and then outputting the ASCII character with code 107, which is p");
+		System.out.println("\n");
+		
+		
+		
 	}   
 
 }
