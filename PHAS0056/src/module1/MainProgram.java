@@ -10,7 +10,8 @@ public class MainProgram {
 		Date myDate = new Date();
 		System.out.println(myDate);
 		System.out.println("Program finished");
-
+		
+		
 	}
 
 }
