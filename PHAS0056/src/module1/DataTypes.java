@@ -48,6 +48,10 @@ public class DataTypes {
 		System.out.println("This shows us Java is taking the ASCII code for f which is 102 and is adding 10 to it to get 112 and then outputting the ASCII character with code 107, which is p");
 		System.out.println("\n");
 		
+		int x = 3;
+		int y;
+		// int z = x + y;
+		System.out.println("Since we did not initialise y, if we try to add x and y we get the error 'The local variable y may not have been initialized', and the program will not run ");
 		
 		
 	}   
