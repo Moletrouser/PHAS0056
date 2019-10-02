@@ -52,6 +52,12 @@ public class DataTypes {
 		int y;
 		// int z = x + y;
 		System.out.println("Since we did not initialise y, if we try to add x and y we get the error 'The local variable y may not have been initialized', and the program will not run ");
+		System.out.println("\n");
+		
+		double doubVar2 = 4.99;
+		int intVar2 = (int) doubVar2;
+		System.out.println(intVar2);
+		
 		
 		
 	}   
