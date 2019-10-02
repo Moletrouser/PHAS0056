@@ -14,6 +14,14 @@ public class DataTypes {
 		byte byteVar = 5;
 		System.out.println("byteVar equals " +byteVar);
 		
+		System.out.println("doubVar squared equals " +doubVar * doubVar);
+		System.out.println("floatVar squared equals " +floatVar * floatVar);
+		System.out.println("intVar squared equals " +intVar * intVar);
+		System.out.println("longVar squared equals " +longVar * longVar);
+		System.out.println("byteVar squared equals " +byteVar * byteVar);
+		
+		
+		
 	}
 
 }
