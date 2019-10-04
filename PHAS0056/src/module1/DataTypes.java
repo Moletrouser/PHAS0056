@@ -56,10 +56,10 @@ public class DataTypes {
 		
 		double doubVar2 = 4.99;
 		int intVar2 = (int) doubVar2;
-		System.out.println(intVar2);
-		
-		
-		
+		System.out.println("When Java is told to perform a double-to-integer cast on the number 4.99, it gives:" +intVar2);
+		System.out.println("This is because when performing double-to-integer casts, Java simply keeps the integer part of the number and discards everything after the decimal point");
+		System.out.println("It does not attempt to round the double to the nearest integer");
+		System.out.println("\n");
 	}   
 
 }
