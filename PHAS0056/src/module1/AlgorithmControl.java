@@ -4,7 +4,7 @@ import java.lang.Math;
 
 public class AlgorithmControl {
 	
-	long timenow = +System.currentTimeMillis();
+	
 	
 	public void loop(int imin, int imax) {
 		int i = 0;
@@ -31,20 +31,24 @@ public class AlgorithmControl {
 		return;
 			
 	}
+	
 
-	public void timer() {
-		long targettime = timenow + 5000;
+	public int timer(long maxTime, int loopSteps) {			
+		long time = +System.currentTimeMillis();
+		long targettime = time + maxTime;
 		int i = 0;
-	    while(timenow <= targettime) {
+	    while(System.currentTimeMillis() <= targettime) {
 	    	i = i + 1;
-	    	int remainder = i % 100;
+	    	int remainder = i % loopSteps;
 	    	if (remainder == 0) {
-	    		System.out.println("This is loop number: " +i);}
-	    return;
+	    		System.out.println("This is loop number: " +i); 
+	    		}
+	    	else;
 	    }
+	    System.out.println("The total number of loops was: " +i);
+	    return i;
+	}
 	    		
-    }
-	    			
 
 
 
@@ -64,9 +68,18 @@ public class AlgorithmControl {
 		
 		System.out.println("Counting from 2.5 to 4.3 in intervals of 0.1: ");
 		ac.increment(2.5, 4.3);
+		System.out.println("\n");
 	
 		System.out.println("The time is: " +System.currentTimeMillis());
-	    ac.timer();
+		
+	    ac.timer(10000, 1000);
+	    System.out.println("\n");
+	    
+	   ac.timer(10000,  50000);
+	   System.out.println("\n");
+	   
+	   
+	   
 	}
 		
 }
