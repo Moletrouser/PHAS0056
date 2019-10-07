@@ -1,8 +1,11 @@
 package module1;
 
+// definition of data types class
 public class DataTypes {
 
 	public static void main(String[] args) {
+		
+		// initialising the same number in different data types 
 		double doubVar = 5.0;
 		System.out.println("doubVar equals " +doubVar);
 		float floatVar = 5;
@@ -15,6 +18,7 @@ public class DataTypes {
 		System.out.println("byteVar equals " +byteVar);
 		System.out.println("\n");
 		
+		// takes the number of each data type and squares it
 		System.out.println("doubVar squared equals " +doubVar * doubVar);
 		System.out.println("floatVar squared equals " +floatVar * floatVar);
 		System.out.println("intVar squared equals " +intVar * intVar);
@@ -22,6 +26,10 @@ public class DataTypes {
 		System.out.println("byteVar squared equals " +byteVar * byteVar);
 		System.out.println("\n");
 		
+		/* The following four blocks of code experiment with adding different
+		 * data types together to see how Java treats them and what data type
+		 * output it gives if the output type is not specified
+		 */
 		System.out.println("floatVar plus intVar equals " +(floatVar + intVar));
 		System.out.println("Java first converts intVar to a float and then adds it to floatVar, giving the right answer as a float");
 		System.out.println("intVar plus floatVar equals " +(intVar + floatVar));
@@ -40,6 +48,7 @@ public class DataTypes {
 		System.out.println("If subtracted in the opposite order, Java still converts longVar into a double before the subtraction, giving the right answer");
 		System.out.println("\n");
 		
+		// Experimented with adding numbers to letters
 		char charVar = 'f';
 		System.out.println("If we try and 'add' charVar to intVar we get:" +(charVar + intVar));
 		System.out.println("Interestingly Java seems to take the ASCII code for 'f' which is 102 and then add this number to intVar giving 107");
@@ -48,12 +57,17 @@ public class DataTypes {
 		System.out.println("This shows us Java is taking the ASCII code for f which is 102 and is adding 10 to it to get 112 and then outputting the ASCII character with code 107, which is p");
 		System.out.println("\n");
 		
+		
+		// Here I experiment with trying arithmetic on variables that haven't been 
+		// assigned a value
 		int x = 3;
 		int y;
+		// the line below is commented out since it breaks the program
 		// int z = x + y;
 		System.out.println("Since we did not initialise y, if we try to add x and y we get the error 'The local variable y may not have been initialized', and the program will not run ");
 		System.out.println("\n");
 		
+		// experimented with changing data type in the form of a double to integer cast
 		double doubVar2 = 4.99;
 		int intVar2 = (int) doubVar2;
 		System.out.println("When Java is told to perform a double-to-integer cast on the number 4.99, it gives:" +intVar2);
