@@ -8,9 +8,9 @@ public class VectorMethods {
 	// defines the dot product function, taking inputs as doubles in the 
 	 // form of two 3D vectors and outputting a single number of type double
 	public double dotProduct(double x, double y, double z, double a, double b, double c) {
-	double dotOutput;
-	dotOutput = (x*a)+(y*b)+(z*c);
-	return dotOutput;
+		double dotOutput;
+		dotOutput = (x*a)+(y*b)+(z*c);
+		return dotOutput;
 	}
 	
 	// defines the magnitude function, taking as an input one 3D vector 
@@ -37,7 +37,6 @@ public class VectorMethods {
 	
 	// defines a new object of the vectormethods class with the prefix vm
 	VectorMethods vm = new VectorMethods();
-	
 	
 	// tests the dot product function on two vectors
 	System.out.println("The dot product of the vectors (1,2,3) and (4,5,6) is: " +vm.dotProduct(1,2,3,4,5,6));
