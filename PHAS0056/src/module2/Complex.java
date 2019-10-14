@@ -68,7 +68,21 @@ public class Complex {
 		return newc;
 	}
 	
+	public static Complex multiply(Complex c1, Complex c2) {
+		double newreal = (c1.real*c2.real) - (c1.imag*c2.imag);
+		double newimag = (c1.real*c2.imag) + (c2.real*c1.imag);
+		Complex newcomplex = new Complex(newreal, newimag);
+		return newcomplex;
+	}
 	
+	// c1 divided by c2
+	public static Complex divide(Complex c1, Complex c2) {
+		double realnumerator = c1.real*c2.real + c1.imag*c2.imag;
+		double imagnumerator = c2.real*c1.imag - c1.real*c2.imag;
+		double denominator = c2.real*c2.real + c2.imag*c2.imag;
+		Complex newcomplex = new Complex(realnumerator/denominator, imagnumerator/denominator);
+		return newcomplex;
+	}
 	
 	
 	
@@ -76,7 +90,7 @@ public class Complex {
 	public String toString() {
 		String realString = Double.toString(real);
 		String imagString = Double.toString(imag);
-		String stringComplex = "(" + realString + ", " + imagString + ")";
+		String stringComplex = "(" + realString + ", " + imagString + "i" +")";
 		return stringComplex;
 	}
 	
@@ -91,6 +105,8 @@ public class Complex {
 		System.out.println(setFromModulusAngle(3, 45));
 		System.out.println("1,2 plus 3,4 is: " +add(i1,i2));
 		System.out.println("1,2 minus 3,4 is: " +subtract(i1,i2));
+		System.out.println("1,2 multiplied by 3,4 is: " +multiply(i1,i2));
+		System.out.println("1,2 divided by 3,4 is: " +divide(i1,i2));
 	}
 
 }
