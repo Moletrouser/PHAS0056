@@ -2,13 +2,14 @@ package module2;
 
 public class TestThreeVector {
 	
+	// calculates the scalar product of the two three vectors passed to it (static version)
 	public static double scalarProduct(ThreeVector vector1, ThreeVector vector2) {
 		double scalarOutput;
 		scalarOutput = vector1.x*vector2.x + vector1.y*vector2.y + vector1.z*vector2.z;
 		return scalarOutput;
 	
 	}
-	
+	 // calculates the vector product of the two three vectors passed to it (static version)
 	 public static ThreeVector vectorProduct(ThreeVector vector1, ThreeVector vector2) {
 	    	double vectorOutputx = (vector1.y*vector2.z)-(vector1.z*vector2.y);
 	    	double vectorOutputy = (vector1.z*vector2.x)-(vector1.x*vector2.z);
@@ -18,6 +19,7 @@ public class TestThreeVector {
 	    	
 	}
 	 
+	// calculates the angle between two three vectors (static version)
 	public static double angle(ThreeVector vector1, ThreeVector vector2) {
 		double angleOutput;
 		angleOutput = Math.toDegrees(Math.acos(scalarProduct(vector1, vector2)/(vector1.magnitude()*vector2.magnitude())));
