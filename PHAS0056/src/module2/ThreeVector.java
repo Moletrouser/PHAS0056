@@ -16,24 +16,28 @@ public class ThreeVector {
 		
 		
 	}
-	
+	// calculates the magnitude of the 3 vector passed to it
 	public double magnitude() {
 		double magnitudeOutput;
 		magnitudeOutput = Math.sqrt((x*x)+(y*y)+(z*z));
 		return magnitudeOutput;
 	
 	}
+	
+	// calculates the unit vector of the three vector passed to it
 	public ThreeVector unitVector() {
 		ThreeVector unit = new ThreeVector(x/magnitude(), y/magnitude(), z/magnitude());
 		return unit;
 	}
 	
+	// calculates the sum of two vectors (static version)
 	public  static ThreeVector addVector(ThreeVector vector1, ThreeVector vector2) {
 		ThreeVector newVector = new ThreeVector(vector1.x+vector2.x, vector1.y+vector2.y, vector1.z+vector2.z);
 		return newVector;
 	
     }
 	
+	// calculates the angle between two three vectors (static version)
 	public static double angle(ThreeVector vector1, ThreeVector vector2) {
 		double angleOutput;
 		angleOutput = Math.toDegrees(Math.acos(scalarProduct(vector1, vector2)/(vector1.magnitude()*vector2.magnitude())));
@@ -41,6 +45,7 @@ public class ThreeVector {
 	
 	}
 	
+	// overwrites the java toString function to tell it how to print vectors legibly 
 	public String toString() {
 		String xString = Double.toString(x);
 		String yString = Double.toString(y);
@@ -49,7 +54,8 @@ public class ThreeVector {
 		return stringVector;
 	
 	}
-
+	
+	// calculates the scalar product of the two three vectors passed to it (static version)
 	public static double scalarProduct(ThreeVector vector1, ThreeVector vector2) {
 		double scalarOutput;
 		scalarOutput = vector1.x*vector2.x + vector1.y*vector2.y + vector1.z*vector2.z;
@@ -57,10 +63,12 @@ public class ThreeVector {
 	
 	}
 	
+	// calculates the scalar product of the two three vectors passed to it (non-static version)
 	public double scalarProduct(ThreeVector v2) {
 		return scalarProduct(this,v2);
 	}
 	
+	// calculates the vector product of the two three vectors passed to it (static version)
     public static ThreeVector vectorProduct(ThreeVector vector1, ThreeVector vector2) {
     	double vectorOutputx = (vector1.y*vector2.z)-(vector1.z*vector2.y);
     	double vectorOutputy = (vector1.z*vector2.x)-(vector1.x*vector2.z);
@@ -70,54 +78,28 @@ public class ThreeVector {
     	
     }
 	
+    // calculates the vector product of the two three vectors passed to it (non-static version)
     public ThreeVector vectorProduct(ThreeVector v2) {
     	return vectorProduct(this, v2);
     
     }
-    
+    // calculates the angle between the two three vectors passed to it (non-static version)
     public double angle(ThreeVector v2) {
     	return angle(this, v2);
     }
+    
+    // calculates the sum of the two three vectors passed to it (non-static version)
     public ThreeVector addVector(ThreeVector v2) {
     	return addVector(this, v2);
     }
-    
-    public void TestThreeVector(ThreeVector v1, ThreeVector v2) {
-    	System.out.println("Vector v1 is: " +v1);
-    	System.out.println("Vector v1 is: " +v2);
-    	System.out.println("The unit vector of vector v1 is: " +v1.unitVector());
-    	System.out.println("The unit vector of vector v2 is: " +v2.unitVector());
-    	System.out.println("The following lines use static methods:");
-    	System.out.println("The scalar product of v1 and v2 is: " +scalarProduct(v1,v2));
-    	System.out.println("The scalar product of v1 and v2 is: " +scalarProduct(v1,v2));
     	
-    }
+  
     
     
     
     
 	public static void main(String[] args) {
 		
-		/*
-		 * The following commented lines of code were for my testing only
-		 * 
-		ThreeVector tv1 = new ThreeVector(1, 2, 3);
-		ThreeVector tv2 = new ThreeVector(4, 5, 6);	
-		System.out.println("The magnitude of the (1,2,3) vector is: " +tv1.magnitude() );
-		System.out.println("\n");
-		System.out.println("The unit vector of the (1,2,3) vector is: " +tv1.unitVector() );
-		System.out.println("\n");
-	    System.out.println("(Using the static function) The scalar product of the vector (1,2,3) with (4,5,6) is: " +scalarProduct(tv1, tv2));
-	    System.out.println("Testing static add function:" +addVector(tv1,tv2));
-	    System.out.println("Testing static angle function :" +angle(tv1,tv2));
-	    System.out.println("Testing static vectorProduct function: " +vectorProduct(tv1,tv2));
-	    System.out.println("\n");
-	    System.out.println("(Using the non-static function) The scalar product of the vector (1,2,3) with (4,5,6) is: " +tv1.scalarProduct(tv2));
-	    System.out.println("(Using the non-static function) The vector product of the vector (1,2,3) with (4,5,6) is: " +tv1.vectorProduct(tv2));
-	    System.out.println("(Using the non-static function) The angle between the vector (1,2,3) and (4,5,6) is: " +tv1.angle(tv2));
-	    System.out.println("(Using the non-static function) Adding vector (1,2,3) to vector (4,5,6) gives: " +tv1.addVector(tv2));
-	     * 
-	     */
 		
 		ThreeVector v1 = new ThreeVector(4,5,3);
 		ThreeVector v2 = new ThreeVector(1,4,2);
