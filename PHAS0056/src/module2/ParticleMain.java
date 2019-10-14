@@ -47,7 +47,6 @@ public class ParticleMain {
 				newparticle.drop(0.01);
 				newparticle.drop(0.001);
 				newparticle.drop(0.0001);
-				newparticle.drop(0.00001);
 				
 				System.out.println("The first run of the simulation with deltaT = 0.5 is inaccurate because of the way dv is calculated");
 				System.out.println("We calculate dv as a*deltaT and so this is only accurate when deltaT is infinitesimally small");
