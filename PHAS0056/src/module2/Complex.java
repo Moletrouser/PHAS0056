@@ -57,6 +57,22 @@ public class Complex {
 		return complex1;
 	}
 	
+	public static Complex add(Complex c1, Complex c2) {
+		Complex newc = new Complex(c1.real + c2.real, c1.imag + c2.imag);
+		return newc;
+		
+	}
+	
+	public static Complex subtract(Complex c1, Complex c2) {
+		Complex newc = new Complex(c1.real - c2.real, c1.imag - c2.imag);
+		return newc;
+	}
+	
+	
+	
+	
+	
+	
 	public String toString() {
 		String realString = Double.toString(real);
 		String imagString = Double.toString(imag);
@@ -67,12 +83,14 @@ public class Complex {
 	public static void main(String[] args) {
 		
 		Complex i1 = new Complex(1,2);
-		Complex i2 = new Complex(1,2);
+		Complex i2 = new Complex(3,4);
 		
 		// testing
 		System.out.println(i1.argument());
 		System.out.println(i1.equals(i2));
 		System.out.println(setFromModulusAngle(3, 45));
+		System.out.println("1,2 plus 3,4 is: " +add(i1,i2));
+		System.out.println("1,2 minus 3,4 is: " +subtract(i1,i2));
 	}
 
 }
