@@ -94,12 +94,27 @@ public class Complex {
 		return stringComplex;
 	}
 	
+	
+	
+	
+	
 	public static void main(String[] args) {
 		
+		
+		
+		Complex ONE = new Complex(1,0);
+		Complex ZERO = new Complex(0,0);
+		Complex I = new Complex(0,1);
+		Complex c1 = new Complex(1,-2);
+		Complex c2 = new Complex(-2,1);
+		
+		
+		
+		/* 
+		 * The following commented out code is for my testing only
+		 * 
 		Complex i1 = new Complex(1,2);
 		Complex i2 = new Complex(3,4);
-		
-		// testing
 		System.out.println(i1.argument());
 		System.out.println(i1.equals(i2));
 		System.out.println(setFromModulusAngle(3, 45));
@@ -107,6 +122,19 @@ public class Complex {
 		System.out.println("1,2 minus 3,4 is: " +subtract(i1,i2));
 		System.out.println("1,2 multiplied by 3,4 is: " +multiply(i1,i2));
 		System.out.println("1,2 divided by 3,4 is: " +divide(i1,i2));
+		*/
+		
+		System.out.println("The product of c1 and c2 is: " +multiply(c1,c2));
+		System.out.println("The ratio of c1 to c2 is: " +divide(c1,c2));
+		System.out.println("The  product of c1 and I: " +multiply(c1,I));
+		System.out.println("The ratio of c1 to zero is: " +divide(c1,ZERO));
+		System.out.println("The product of c1 with its conjugate is: " +multiply(c1,c1.conjugate()));
+		System.out.println("The product of c2 with its conjugate is: " +multiply(c2,c2.conjugate()));
+		
+		
+		
+		
+		
 	}
 
 }
