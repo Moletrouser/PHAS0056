@@ -10,7 +10,6 @@ public class Complex {
 		this.imag = imag;
 		
 	}
-	
 	// defines how java should return the real part of a complex number
 	public double real() {
 		return real;
@@ -84,16 +83,22 @@ public class Complex {
 	}
 	
 	// divides the complex number c1 by c2
-	public static Complex divide(Complex c1, Complex c2) {
+	public static Complex divide(Complex c1, Complex c2){
 		Complex ZERO = new Complex(0,0);
+		try {
+		      // process() method can throw an exception
+		      int n = process(k);
+		      System.out.println("in: "+k+"  out: "+n);
+		    }
+		    catch (Exception e) {
+		      // Catch any exception throw by
+		      // the process() method
+		      System.out.println(e);
 		double realnumerator = c1.real*c2.real + c1.imag*c2.imag;
 		double imagnumerator = c2.real*c1.imag - c1.real*c2.imag;
 		double denominator = c2.real*c2.real + c2.imag*c2.imag;
 		Complex newcomplex = new Complex(realnumerator/denominator, imagnumerator/denominator);
-		if (newcomplex==ZERO) {
-		      throw new Exception("Trying to divide by zero");
-		    }
-		   
+		
 		return newcomplex;
 		    }
 	
