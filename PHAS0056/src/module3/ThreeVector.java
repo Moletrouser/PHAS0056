@@ -25,7 +25,10 @@ public class ThreeVector {
 	}
 	
 	// calculates the unit vector of the three vector passed to it
-	public ThreeVector unitVector() {
+	public ThreeVector unitVector() throws Exception {
+		if (x == 0 && y == 0 && z == 0) {
+			throw new Exception("Cannot find the unit vector of the zero vector");
+		}
 		ThreeVector unit = new ThreeVector(x/magnitude(), y/magnitude(), z/magnitude());
 		return unit;
 	}
@@ -38,7 +41,13 @@ public class ThreeVector {
     }
 	
 	// calculates the angle between two three vectors (static version)
-	public static double angle(ThreeVector vector1, ThreeVector vector2) {
+	public static double angle(ThreeVector vector1, ThreeVector vector2) throws Exception{
+		if (vector2.x == 0 && vector2.y == 0 && vector2.z == 0) {
+			throw new Exception("Cannot find the angle between two vectors if one is the zero vector (Change vector 2 to a non-zero vector)");
+		}
+		if (vector1.x == 0 && vector1.y == 0 && vector1.z == 0) {
+			throw new Exception("Cannot find the angle between two vectors if one is the zero vector (Change vector 1 to a non-zero vector)");
+		}
 		double angleOutput;
 		angleOutput = Math.toDegrees(Math.acos(scalarProduct(vector1, vector2)/(vector1.magnitude()*vector2.magnitude())));
 		return angleOutput;
@@ -84,9 +93,16 @@ public class ThreeVector {
     
     }
     // calculates the angle between the two three vectors passed to it (non-static version)
-    public double angle(ThreeVector v2) {
-    	return angle(this, v2);
-    }
+    public double angle(ThreeVector v2) throws Exception  {
+    if (this.x == 0 && this.y == 0 && this.z == 0) {
+		throw new Exception("Cannot find the angle between two vectors if one is the zero vector (Change vector 1 to a non-zero vector)");
+	}
+	if (v2.x == 0 && v2.y == 0 && v2.z == 0) {
+		throw new Exception("Cannot find the angle between two vectors if one is the zero vector (Change vector 2 to a non-zero vector)");
+	}	
+	return angle(this, v2);
+	}
+    
     
     // calculates the sum of the two three vectors passed to it (non-static version)
     public ThreeVector addVector(ThreeVector v2) {
@@ -104,6 +120,44 @@ public class ThreeVector {
 		ThreeVector v1 = new ThreeVector(4,5,3);
 		ThreeVector v2 = new ThreeVector(1,4,2);
 		ThreeVector v3 = new ThreeVector(0,0,0);
+		
+		
+		// testing how the static unitVector method responds to receiving the zero vector as the input
+		System.out.println("Testing how the static unitVector method responds to a zero input");
+		try {
+			System.out.println(v3.unitVector());
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
+		System.out.println("\n");
+		
+		
+		// testing how the static angle method responds to receiving the zero vector as one of the inputs
+		System.out.println("Testing how the static angle method responds to a zero input");
+		try {
+			System.out.println(angle(v3,v1));
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
+		System.out.println("\n");
+		
+		
+		// testing how the non-static angle method responds to receiving the zero vector as the input
+		System.out.println("Testing how the non-static angle method responds to a zero input");
+		try {
+			System.out.println(v3.angle(v1));
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
+		System.out.println("\n");
+		
+		
+		
+		
+		/*
 		
 		System.out.println("Vector v1 is: " +v1);
     	System.out.println("Vector v2 is: " +v2);
@@ -135,6 +189,8 @@ public class ThreeVector {
 		System.out.println("This is because java already has a definition of the toString function built into it, and unless we specify a different definition it will default to it's built in definition.");
 		System.out.println("34c45dca is a hexidecimal number, probably refering to the memory address at which the v1 variable is stored in the stack.");
 		System.out.println("Since java does not now how to print the format of number we have given it, it seems to instead default to printing the memory address at which the variable is stored");
+		*/
+	
 	}
 	
 
