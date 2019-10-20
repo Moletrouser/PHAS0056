@@ -10,6 +10,7 @@ public class Complex {
 		this.imag = imag;
 		
 	}
+	
 	// defines how java should return the real part of a complex number
 	public double real() {
 		return real;
@@ -39,7 +40,10 @@ public class Complex {
 	}
 	
 	// normalises the complex number passed to it
-	public Complex normalised() {
+	public Complex normalised() throws Exception{
+		if (modulus()==0) {
+			throw new Exception("Cannot normalise a complex number with modulus zero");
+		}
 		Complex norm = new Complex(real/modulus(), imag/modulus());
 		return norm;
 	}
@@ -83,25 +87,18 @@ public class Complex {
 	}
 	
 	// divides the complex number c1 by c2
-	public static Complex divide(Complex c1, Complex c2){
-		Complex ZERO = new Complex(0,0);
-		try {
-		      // process() method can throw an exception
-		      int n = process(k);
-		      System.out.println("in: "+k+"  out: "+n);
-		    }
-		    catch (Exception e) {
-		      // Catch any exception throw by
-		      // the process() method
-		      System.out.println(e);
+	public static Complex divide(Complex c1, Complex c2) throws Exception {
+		//Complex ZERO = new Complex(0,0);
+		//if (c1 != ZERO && c2 == ZERO) {
+		if (c2.real == 0 && c2.imag == 0) {
+			throw new Exception("Cannot divide a non zero number by zero");
+		}
 		double realnumerator = c1.real*c2.real + c1.imag*c2.imag;
 		double imagnumerator = c2.real*c1.imag - c1.real*c2.imag;
 		double denominator = c2.real*c2.real + c2.imag*c2.imag;
 		Complex newcomplex = new Complex(realnumerator/denominator, imagnumerator/denominator);
-		
 		return newcomplex;
-		    }
-	
+	}
 	
 	
 	
@@ -117,7 +114,7 @@ public class Complex {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		
 		
@@ -126,11 +123,30 @@ public class Complex {
 		Complex I = new Complex(0,1);
 		Complex c1 = new Complex(1,-2);
 		Complex c2 = new Complex(-2,1);
+	
+		// testing what happens if we divide by zero
+		try {
+			System.out.println(divide(c1,ZERO));
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
+		
+		
+		// testing what happens if we try to normalise the zero vector
+		try {
+			System.out.println(ZERO.normalised());
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
+		
+		
 		
 		System.out.println("The product of c1 and c2 is: " +multiply(c1,c2));
-		System.out.println("The ratio of c1 to c2 is: " +divide(c1,c2));
+	//	System.out.println("The ratio of c1 to c2 is: " +divide(c1,c2));
 		System.out.println("The  product of c1 and I: " +multiply(c1,I));
-		System.out.println("The ratio of c1 to zero is: " +divide(c1,ZERO));
+	//	System.out.println("The ratio of c1 to zero is: " +divide(c1,ZERO));
 		System.out.println("The product of c1 with its conjugate is: " +multiply(c1,c1.conjugate()));
 		System.out.println("The product of c2 with its conjugate is: " +multiply(c2,c2.conjugate()));
 		
