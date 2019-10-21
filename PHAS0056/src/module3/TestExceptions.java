@@ -58,14 +58,24 @@ public class TestExceptions {
 		ThreeVector v2 = new ThreeVector(1,4,2);
 		ThreeVector v3 = new ThreeVector(0,0,0);
 		
-		System.out.println("Testing how the complex divide method responds divide-by-zero request");
+		System.out.println("Testing how the complex divide method responds to dividing by zero");
 		try {
-			System.out.println(divide(c1,ZERO));
+			System.out.println("(1 - 2i) divided by (0 + 0i) equals:" +divide(c1,ZERO));
 		}
 		catch(Exception e) {
 			System.out.println("Error: " +e.getMessage());
 		}
 		System.out.println("\n");
+		
+		System.out.println("Testing how the complex divide method responds to dividing zero by a non-zero number");
+		try {
+			System.out.println("(0 + 0i) divided by (1 - 2i) equals: " +divide(ZERO,c1));
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
+		System.out.println("\n");
+		
 		
 		System.out.println("Testing how normalised method responds to a request to normalise the complex number (0 + 0i)");
 		try {
@@ -108,6 +118,7 @@ public class TestExceptions {
 		}
 		System.out.println("\n");
 		
+		System.out.println("Testing how particle drop method responds to a negative mass particle");
 		try {
 			double m = -2;
 			double d = 3;
@@ -146,9 +157,28 @@ public class TestExceptions {
 		}
 		System.out.println("\n");
 		
+		System.out.println("Testing how particle drop method responds to a negative time step");
+		try {
+			double m = 2;
+			double d = 3;
+			double h = 2;
+			FallingParticle newparticle = new FallingParticle (m,d, h);
+			newparticle.drop(-0.001);
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
 		
-		
-		
+		System.out.println("Testing how particle drop method responds to multiple unphysical values");
+		try {
+			double m = 2;
+			double d = 3;
+			double h = 2;
+			FallingParticle newparticle = new FallingParticle (m,d, h);
+			newparticle.drop(-0.001);
+		}
+		catch(Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
 	}
-
 }

@@ -81,6 +81,8 @@ public class Alphabet {
 			}
 		}
 		
+		
+		// prints the length of the built string, the total sum of numbers added and total number of exceptions along with the exception error messages
 		int length = builtstring.length();
 		System.out.println(builtstring);	
 		System.out.println("The length of the built string is: " +length);	

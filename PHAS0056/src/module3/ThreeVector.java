@@ -27,7 +27,7 @@ public class ThreeVector {
 	// calculates the unit vector of the three vector passed to it
 	public ThreeVector unitVector() throws Exception {
 		if (x == 0 && y == 0 && z == 0) {
-			throw new Exception("Cannot find the unit vector of the zero vector");
+			throw new Exception("The zero vector has no direction and it's modulus is zero, therefore it's unitvector cannot be determined");
 		}
 		ThreeVector unit = new ThreeVector(x/magnitude(), y/magnitude(), z/magnitude());
 		return unit;

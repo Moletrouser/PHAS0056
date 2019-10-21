@@ -74,7 +74,10 @@ public class FallingParticle {
 	
 	// the drop method executes a while loop that calculates the change in velocity per time step and uses that to
 	// update the position and time variables
-	public void drop(double deltaT) {
+	public void drop(double deltaT) throws Exception{
+		if (deltaT <= 0) {
+			throw new Exception("The time step cannot be negative");
+		}
 		double z = h;
 		double v = 0;
 		t=0; 
@@ -145,7 +148,7 @@ public class FallingParticle {
 		
 		
 		
-		
+		/*
 		double m = 2;
 		double d = 3;
 		double h = 2;
@@ -161,7 +164,7 @@ public class FallingParticle {
 		;
 		}
 		
-		/*
+		
 		System.out.println("The first run of the simulation with deltaT = 0.5 is inaccurate because of the way dv is calculated");
 		System.out.println("We calculate dv as a*deltaT and so this is only accurate when deltaT is infinitesimally small");
 		System.out.println("Because acceleration is the change in displacement per second per second, if we only recalculate a every 0.5 seconds this clearly leads to a bad approximation");

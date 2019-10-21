@@ -89,12 +89,10 @@ public class Complex {
 	// divides the complex number c1 by c2
 	public static Complex divide(Complex c1, Complex c2) throws Exception {
 		Complex ZERO = new Complex(0,0);
-		if (c1.real == 0 && c1.imag == 0) {
-			return ZERO;
+		if (c2.real == 0 && c2.imag == 0) { 
+				throw new Exception("Cannot divide by zero");
 		}
-		if (c2.real == 0 && c2.imag == 0) {
-			throw new Exception("Cannot divide a non zero number by zero");
-		}
+		
 		double realnumerator = c1.real*c2.real + c1.imag*c2.imag;
 		double imagnumerator = c2.real*c1.imag - c1.real*c2.imag;
 		double denominator = c2.real*c2.real + c2.imag*c2.imag;
