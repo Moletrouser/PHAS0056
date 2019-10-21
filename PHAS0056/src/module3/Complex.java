@@ -144,15 +144,16 @@ public class Complex {
 		}
 		
 		
-		
+		/*
+		 * 
 		System.out.println("The product of c1 and c2 is: " +multiply(c1,c2));
-	//	System.out.println("The ratio of c1 to c2 is: " +divide(c1,c2));
+		System.out.println("The ratio of c1 to c2 is: " +divide(c1,c2));
 		System.out.println("The  product of c1 and I: " +multiply(c1,I));
-	//	System.out.println("The ratio of c1 to zero is: " +divide(c1,ZERO));
+		System.out.println("The ratio of c1 to zero is: " +divide(c1,ZERO));
 		System.out.println("The product of c1 with its conjugate is: " +multiply(c1,c1.conjugate()));
 		System.out.println("The product of c2 with its conjugate is: " +multiply(c2,c2.conjugate()));
 		
-		
+		*/
 		
 		
 		
