@@ -3,6 +3,9 @@ package module4;
 
 import java.io.*;
 import java.net.*;	
+import java.util.Scanner; 
+
+
 
 public class WordCounter {
 	
@@ -34,6 +37,17 @@ public class WordCounter {
 		return br;
 	}	
 	
+	public static int countWordsInResource(BufferedReader dataAsBR) throws IOException {
+		try(Scanner sc = new Scanner(dataAsBR)){
+		    int count = 0;
+		    while(sc.hasNext()){
+		        sc.next();
+		        count = count + 1;
+		    }
+		
+		return count;	    
+		}		
+	}
 	
 	
 
@@ -41,7 +55,10 @@ public class WordCounter {
 	public static void main(String[] args) {
 		
 		try {
-		brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt");
+		BufferedReader b = brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt");
+		int count = countWordsInResource(b);
+		System.out.println("The number of words on this webpage is: " +count);
+		
 		}
 		catch(IOException e) {
 		}
