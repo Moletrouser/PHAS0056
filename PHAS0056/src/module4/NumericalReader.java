@@ -22,19 +22,34 @@ public class NumericalReader {
 	
 	public BufferedReader brFromURL(String urlName) throws IOException {
 		URL newurl = new URL(urlName);
-		InputStream is = newurl.openStream();
+		InputStream is = null;
+		try {
+		is = newurl.openStream();
+		}
+		catch (IOException e){
+		System.out.println("Error with URL: Check that the entered URL is formatted correctly");
+		}
 		InputStreamReader r = new InputStreamReader(is);
 		BufferedReader b = new BufferedReader(r);
 		return b;
 	}
 	
 	void analysisStart(String dataFile) throws IOException {
-		double minValue = 0;
-		double maxValue = 10000;
-		double nValues  = 0;
-		double sumOfValues = 0;
-		FileWriter f = new FileWriter(dataFile);
-		f.close();
+		FileWriter f = null;
+		File output = new File("C:\\mywork\\numbers.txt");
+		//FileWriter f = new FileWriter(dataFile);
+		try {
+			f = new FileWriter(output);
+		}
+		catch (IOException e) {
+			System.out.println("Cannot write to file, check target directory.");
+		}
+		BufferedWriter b = new BufferedWriter(f);
+		p = new PrintWriter(b);
+		minValue = 0;
+		maxValue = 10000;
+		nValues = 0;
+		sumOfValues = 0;
 	}
 	
 	void analyseData(String line)  throws IOException {
