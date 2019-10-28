@@ -53,49 +53,34 @@ public class NumericalReader {
 	}
 	
 	void analyseData(String line)  throws IOException {
-		double minValue = 0;
-		double maxValue = 100000;
-		double nValues  = 0;
-		double sumOfValues = 0;
+		
 		Character firstchar =  line.charAt(0);
-		Scanner sc = new Scanner(line);
-		
-		
-		
-		while(sc.hasNext()==true){
-			//if (line != null && Character.isLetter(firstchar) == false) {
-			if (Character.isDigit(firstchar) == true) {
-		    System.out.println("The next number on the line is: " +sc.nextDouble());
+		String trimstring = line.trim(); //removes leading and trailing spaces from string
+		Scanner sc = new Scanner(trimstring);
+		while(sc.hasNextDouble()){
 			double nextnumber = sc.nextDouble();
-			
-		        if (nextnumber > minValue) {
-		        	System.out.println("The next number is: " +nextnumber);
-		        	minValue = nextnumber;
-		        	FileWriter f = new FileWriter("fileName");
-		        	BufferedWriter b = new BufferedWriter(f);
-		        	PrintWriter print = new PrintWriter(b);
-		        	p.println(nextnumber);
-		        	//p.close();
-		        }
+			String stringconvert = Double.toString(nextnumber);
+			//if (Character.isDigit(firstchar) == true) {
+		    System.out.println("The next number on the line is: " +sc.nextDouble());
+		    if (nextnumber > minValue) {
+		        System.out.println("The current minValue is: " +nextnumber);
+		       	minValue = nextnumber;		      
+		    }
 		        
-		        if (nextnumber < maxValue) {
-		        	System.out.println("The next number is: " +nextnumber);
-		        	maxValue = nextnumber;
-		        	FileWriter f = new FileWriter("fileName");
-		        	BufferedWriter b = new BufferedWriter(f);
-		        	PrintWriter p = new PrintWriter(b);
-		        	p.println(nextnumber);
-		        	//pw.close();
-		        }
+		    if (nextnumber < maxValue) {
+		        System.out.println("The current maxValue is: " +nextnumber);
+		        maxValue = nextnumber;
+		   }
 		        
-	  nValues = nValues + 1;
-	  System.out.println("The current nValue is: " +nValues);
-	  }
-	  sc.close();		
-	  }
+	   nValues = nValues + 1;
+	   sumOfValues = sumOfValues + nextnumber;
+	   System.out.println("The current nValue is: " +nValues);
+	   System.out.println("The current sumOfValues is: " +nValues);
+	   }		
+   }
 	
 	
-	}
+	
 	
 	public void analysisEnd () {
 		double average = sumOfValues/nValues;
