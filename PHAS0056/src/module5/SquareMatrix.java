@@ -38,7 +38,22 @@ public class SquareMatrix {
 		}
 	}
 	
-				
+	
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public String toString() {
 	        int rows = matrixData.length;
 	        int columns = matrixData[0].length;
