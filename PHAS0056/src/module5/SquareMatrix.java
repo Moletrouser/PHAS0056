@@ -114,7 +114,31 @@ public class SquareMatrix {
 	}
 	
 	
-	
+	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		
+		int columns1 = sm1.columns();
+	    int rows1 = sm1.rows();
+	    int columns2 = sm2.columns();
+	    int rows2 = sm2.rows();
+	    
+	    if (columns1 != rows2) {
+	    	throw new Exception("Columns of matrix 1 must equal rows of matrix 2 to multiply."); 	
+	    }
+	    
+	    SquareMatrix sm3 = new SquareMatrix(null);
+	    double[][] sm3Data = new double [sm1.rows()][sm1.columns()];
+	    for(int i=0;i<columns1;i++ ){    
+	    	for(int j=0;j<rows1;j++) {   
+	    		sm3Data[i][j] = 0;
+	    		for(int k=0;k<columns1;k++) {
+	    		sm3Data[i][j] += sm1.matrixData[i][k]*sm2.matrixData[k][j];
+	    		sm3 = new SquareMatrix (sm3Data);
+	    		}
+	    	}
+	    }
+	   return sm3;
+	    	
+	}
 	
 	
 	
@@ -177,6 +201,16 @@ public class SquareMatrix {
 			SquareMatrix matrix2 = new SquareMatrix(mat2);
 			SquareMatrix matrix3 = new SquareMatrix(mat3);
 			SquareMatrix sm3 = subtract(matrix2,matrix3);
+			System.out.println("Subtracting matrix 2 and 3:" +sm3);
+		}
+		catch (Exception e) {
+			System.out.println("Error: " +e.getMessage());
+		}
+		
+		try {
+			SquareMatrix matrix2 = new SquareMatrix(mat2);
+			SquareMatrix matrix3 = new SquareMatrix(mat3);
+			SquareMatrix sm3 = multiply(matrix2,matrix3);
 			System.out.println("Subtracting matrix 2 and 3:" +sm3);
 		}
 		catch (Exception e) {
