@@ -10,7 +10,7 @@ public class SquareMatrix {
 	int numRows;
 	int numColumns;
 	
-	public SquareMatrix(double[][] elements) throws Exception {
+	public SquareMatrix(double[][] elements) {
 		matrixData = elements;
 		
 	}
@@ -140,6 +140,38 @@ public class SquareMatrix {
 	    	
 	}
 	
+	public static boolean equals(SquareMatrix sm1, SquareMatrix sm2) {
+		
+		int columns1 = sm1.columns();
+	    int rows1 = sm1.rows();
+	    int columns2 = sm2.columns();
+	    int rows2 = sm2.rows();
+	    
+	    if (columns1 != columns2 || rows1 != rows2) {
+	    	return false;
+	    }
+		for (int x1 = 0; x1 < sm1.rows(); x1++) {
+			for (int y1 =0; y1 < sm2.columns(); y1++){
+				for (int x2 = 0; x2 < sm2.rows(); x2++) {
+					for (int y2 =0; y2 < sm2.columns(); y2++){
+						if (x1 == x2 && y1 ==y2) {
+							double n1 = sm1.matrixData[x1][y1];
+							double n2 = sm2.matrixData[x2][y2];
+							if (n1 == n2){
+								return true;
+							}
+							else return false;}
+						}
+					}
+				}
+			}
+		return false;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -175,7 +207,25 @@ public class SquareMatrix {
 		
 		double [][] mat1 = {{1,2,3,4,5},{6,7,8,9,10}};
 		double [][] mat2 = {{1,2},{3,4}};
-		double [][] mat3 = {{5,6},{7,8}};
+		double [][] mat3 = {{1,2},{3,4}};
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		try {
+		SquareMatrix matrix2 = new SquareMatrix(mat2);
+		SquareMatrix matrix3 = new SquareMatrix(mat3);	
+		System.out.println(equals(matrix2, matrix3));
+		}
+		finally {
+			
+		}
+	
 		try {
 			SquareMatrix matrix1 = new SquareMatrix(mat1);
 			System.out.println(matrix1);
@@ -216,6 +266,10 @@ public class SquareMatrix {
 		catch (Exception e) {
 			System.out.println("Error: " +e.getMessage());
 		}
+		*/
+		
+		
+		
 	}
 
 }
