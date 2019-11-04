@@ -62,15 +62,15 @@ public class SquareMatrix {
 	    
 		SquareMatrix sm3 = new SquareMatrix(null);
 		double[][] sm3Data = new double [sm1.rows()][sm1.columns()];
-		for (int x1 = 0; x1 < sm1.rows(); x1++) {
-			for (int y1 =0; y1 < sm1.columns(); y1++){
-				for (int x2 = 0; x2 < sm2.rows(); x2++) {
-					for (int y2 =0; y2 < sm2.columns(); y2++){
-						if (x1 == x2 && y1 ==y2) {
-							double n1 = sm1.matrixData[x1][y1];
-							double n2 = sm2.matrixData[x2][y2];
-							double nn = n1 + n2;
-							sm3Data[x1][y1] = nn;
+		for (int i1 = 0; i1 < sm1.rows(); i1++) {
+			for (int j1 = 0; j1 < sm1.columns(); j1++){
+				for (int i2 = 0; i2 < sm2.rows(); i2++) {
+					for (int j2 =0; j2 < sm2.columns(); j2++){
+						if (i1 == i2 && j1 == j2) {
+							double z1 = sm1.matrixData[i1][i1];
+							double z2 = sm2.matrixData[j2][j2];
+							double z12 = z1 + z2;
+							sm3Data[i1][j1] = z12;
 							sm3 = new SquareMatrix (sm3Data);
 							}
 						}
@@ -80,6 +80,51 @@ public class SquareMatrix {
 	    return sm3;
  
 	}
+	
+	public SquareMatrix add(SquareMatrix sm2) throws Exception {
+		
+		double columns1 = this.columns(); 
+		double rows1 = this.rows();
+		double columns2 = sm2.columns(); 
+		double rows2 = sm2.rows();
+		
+		if (columns1 != columns2 || rows1 != rows2) {
+	    	throw new Exception("Cannot add matrices with different dimensions."); 	
+	    }
+		
+		double[][] sm3Data = new double [this.rows()][this.columns()];
+		SquareMatrix sm3 = new SquareMatrix(null);
+		for (int i1 = 0; i1 < rows1; i1++) {
+			for (int j1 =0; j1 < columns1; j1++){
+				for (int i2 = 0; i2 < rows2; i2++) {
+					for (int j2 =0; j2 < columns2; j2++){
+						if (i1 == i2 && j1 ==j2) {
+							double z1 = this.matrixData[i1][j1];
+							double z2 = sm2.matrixData[i2][j2];
+							double sum = z1 + z2;
+							
+							sm3Data[i1][j1] = sum;
+							sm3 = new SquareMatrix (sm3Data);
+							}
+						}
+					}
+				}
+			}
+		return sm3;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
@@ -94,15 +139,15 @@ public class SquareMatrix {
 	    
 	    SquareMatrix sm3 = new SquareMatrix(null);
 		double[][] sm3Data = new double [sm1.rows()][sm1.columns()];
-		for (int x1 = 0; x1 < sm1.rows(); x1++) {
-			for (int y1 =0; y1 < sm1.columns(); y1++){
-				for (int x2 = 0; x2 < sm2.rows(); x2++) {
-					for (int y2 =0; y2 < sm2.columns(); y2++){
-						if (x1 == x2 && y1 ==y2) {
-							double n1 = sm1.matrixData[x1][y1];
-							double n2 = sm2.matrixData[x2][y2];
-							double nn = n1 - n2;
-							sm3Data[x1][y1] = nn;
+		for (int i1 = 0; i1 < sm1.rows(); i1++) {
+			for (int j1 =0; j1 < sm1.columns(); j1++){
+				for (int i2 = 0; i2 < sm2.rows(); i2++) {
+					for (int j2 =0; j2 < sm2.columns(); j2++){
+						if (i1 == i2 && j1 == j2) {
+							double z1 = sm1.matrixData[i1][j1];
+							double z2 = sm2.matrixData[i2][j2];
+							double z12 = z1 - z2;
+							sm3Data[i1][j1] = z12;
 							sm3 = new SquareMatrix (sm3Data);
 							}
 						}
@@ -131,12 +176,12 @@ public class SquareMatrix {
 	    	for(int j=0;j<rows1;j++) {   
 	    		sm3Data[i][j] = 0;
 	    		for(int k=0;k<columns1;k++) {
-	    		sm3Data[i][j] += sm1.matrixData[i][k]*sm2.matrixData[k][j];
-	    		sm3 = new SquareMatrix (sm3Data);
+	    			sm3Data[i][j] += sm1.matrixData[i][k]*sm2.matrixData[k][j];
+	    			sm3 = new SquareMatrix (sm3Data);
 	    		}
 	    	}
 	    }
-	   return sm3;
+	    return sm3;
 	    	
 	}
 	
@@ -168,7 +213,18 @@ public class SquareMatrix {
 		return false;
 	}
 	
-	
+	public static SquareMatrix unit(int size) {	
+		SquareMatrix unitMatrix = new SquareMatrix(null);
+		double[][] unitData = new double [size][size];
+		for(int i = 0; i < size; i++) {
+			for(int j = 0; j < size; j++) {
+		    	unitData[i][j] = (i == j) ? 1 : 0;
+		 	    }
+		   }
+		unitMatrix = new SquareMatrix (unitData);
+		return unitMatrix;
+		
+	}
 	
 	
 	
@@ -209,64 +265,25 @@ public class SquareMatrix {
 		double [][] mat2 = {{1,2},{3,4}};
 		double [][] mat3 = {{1,2},{3,4}};
 		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		try {
 		SquareMatrix matrix2 = new SquareMatrix(mat2);
-		SquareMatrix matrix3 = new SquareMatrix(mat3);	
-		System.out.println(equals(matrix2, matrix3));
-		}
-		finally {
-			
-		}
-	
-		try {
-			SquareMatrix matrix1 = new SquareMatrix(mat1);
-			System.out.println(matrix1);
-		}
-		catch (Exception e) {
-			System.out.println("Error: " +e.getMessage());
-		}
-
-		
+		SquareMatrix matrix3 = new SquareMatrix(mat3);
 		
 		try {
-			SquareMatrix matrix2 = new SquareMatrix(mat2);
-			SquareMatrix matrix3 = new SquareMatrix(mat3);
-			SquareMatrix sm3 = add(matrix2,matrix3);
-			System.out.println("Adding matrix 2 and 3:" +sm3);
+		System.out.println("Matrix 1 plus Matrix 2 is: " +matrix2.add(matrix3));
 		}
 		catch (Exception e) {
-			System.out.println("Error: " +e.getMessage());
+		
 		}
 		
 		
-		try {
-			SquareMatrix matrix2 = new SquareMatrix(mat2);
-			SquareMatrix matrix3 = new SquareMatrix(mat3);
-			SquareMatrix sm3 = subtract(matrix2,matrix3);
-			System.out.println("Subtracting matrix 2 and 3:" +sm3);
-		}
-		catch (Exception e) {
-			System.out.println("Error: " +e.getMessage());
-		}
 		
-		try {
-			SquareMatrix matrix2 = new SquareMatrix(mat2);
-			SquareMatrix matrix3 = new SquareMatrix(mat3);
-			SquareMatrix sm3 = multiply(matrix2,matrix3);
-			System.out.println("Subtracting matrix 2 and 3:" +sm3);
-		}
-		catch (Exception e) {
-			System.out.println("Error: " +e.getMessage());
-		}
-		*/
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
