@@ -13,4 +13,14 @@ public class Theory {
 		return y;
 	}
 	
-}
+
+
+   public static void main(String[] args) {
+	
+	Theory t1 = new Theory(5);
+	
+	double value = t1.y(3);
+	System.out.println(value);
+	   
+   }
+}  
