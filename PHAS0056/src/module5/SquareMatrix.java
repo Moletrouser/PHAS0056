@@ -192,9 +192,35 @@ public class SquareMatrix {
 	    		}
 	    	}
 	    }
-	    return sm3;
-	    	
+	    return sm3;   	
 	}
+	
+	public SquareMatrix multiply(SquareMatrix sm2) throws Exception {
+			
+			int columns1 = this.columns();
+		    int rows1 = this.rows();
+		    int columns2 = sm2.columns();
+		    int rows2 = sm2.rows();
+		    
+		    if (columns1 != rows2) {
+		    	throw new Exception("Columns of matrix 1 must equal rows of matrix 2 to multiply."); 	
+		    }
+		    
+		    SquareMatrix sm3 = new SquareMatrix(null);
+		    double[][] sm3Data = new double [this.rows()][this.columns()];
+		    for(int i=0;i<columns1;i++ ){    
+		    	for(int j=0;j<rows1;j++) {   
+		    		sm3Data[i][j] = 0;
+		    		for(int k=0;k<columns1;k++) {
+		    			sm3Data[i][j] += this.matrixData[i][k]*sm2.matrixData[k][j];
+		    			sm3 = new SquareMatrix (sm3Data);
+		    		}
+		    	}
+		    }
+		    return sm3;
+	}
+	
+	
 	
 	public static boolean equals(SquareMatrix sm1, SquareMatrix sm2) {
 		
@@ -280,8 +306,8 @@ public class SquareMatrix {
 		SquareMatrix matrix3 = new SquareMatrix(mat3);
 		
 		try {
-		System.out.println("Matrix 1 minus Matrix 2 is:");
-		System.out.println(matrix2.subtract(matrix3));
+		System.out.println("Matrix 1 times Matrix 2 is:");
+		System.out.println(matrix2.multiply(matrix3));
 		}
 		catch (Exception e) {
 		
