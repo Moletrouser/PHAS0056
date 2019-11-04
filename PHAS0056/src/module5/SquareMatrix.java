@@ -35,20 +35,8 @@ public class SquareMatrix {
 		}
 	}
 	
-	/*
-	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception{
-        int columns1 = sm1.columns();
-        int rows1 = sm1.rows();
-        int columns2 = sm2.columns();
-        int rows2 = sm2.rows();
-        if (columns1 != columns2 || rows1 != rows2) {
-        	throw new Exception("Cannot add matrices with different dimensions."); 	
-        }
-        SquareMatrix m = new SquareMatrix(null);
-		return m;
-		}
-	*/
 		
+	
 	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
 		int columns1 = sm1.columns();
@@ -80,6 +68,8 @@ public class SquareMatrix {
 	    return sm3;
  
 	}
+	
+	
 	
 	public SquareMatrix add(SquareMatrix sm2) throws Exception {
 		
@@ -115,17 +105,6 @@ public class SquareMatrix {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
 		int columns1 = sm1.columns();
@@ -158,6 +137,38 @@ public class SquareMatrix {
 	    
 	}
 	
+	public SquareMatrix subtract(SquareMatrix sm2) throws Exception {
+			
+			double columns1 = this.columns(); 
+			double rows1 = this.rows();
+			double columns2 = sm2.columns(); 
+			double rows2 = sm2.rows();
+			
+			if (columns1 != columns2 || rows1 != rows2) {
+		    	throw new Exception("Cannot subtract matrices with different dimensions."); 	
+		    }
+			
+			double[][] sm3Data = new double [this.rows()][this.columns()];
+			SquareMatrix sm3 = new SquareMatrix(null);
+			for (int i1 = 0; i1 < rows1; i1++) {
+				for (int j1 =0; j1 < columns1; j1++){
+					for (int i2 = 0; i2 < rows2; i2++) {
+						for (int j2 =0; j2 < columns2; j2++){
+							if (i1 == i2 && j1 ==j2) {
+								double z1 = this.matrixData[i1][j1];
+								double z2 = sm2.matrixData[i2][j2];
+								double sum = z1 - z2;
+								
+								sm3Data[i1][j1] = sum;
+								sm3 = new SquareMatrix (sm3Data);
+								}
+							}
+						}
+					}
+				}
+			return sm3;
+		}
+		
 	
 	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
@@ -263,13 +274,14 @@ public class SquareMatrix {
 		
 		double [][] mat1 = {{1,2,3,4,5},{6,7,8,9,10}};
 		double [][] mat2 = {{1,2},{3,4}};
-		double [][] mat3 = {{1,2},{3,4}};
+		double [][] mat3 = {{5,6},{7,8}};
 		
 		SquareMatrix matrix2 = new SquareMatrix(mat2);
 		SquareMatrix matrix3 = new SquareMatrix(mat3);
 		
 		try {
-		System.out.println("Matrix 1 plus Matrix 2 is: " +matrix2.add(matrix3));
+		System.out.println("Matrix 1 minus Matrix 2 is:");
+		System.out.println(matrix2.subtract(matrix3));
 		}
 		catch (Exception e) {
 		
