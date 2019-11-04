@@ -11,6 +11,11 @@ public class SquareMatrix {
 	int numColumns;
 	
 	public SquareMatrix(double[][] elements) {
+		//SquareMatrix matrixCheck = new SquareMatrix(elements);
+		//if (matrixCheck.rows() != matrixCheck.columns()) {
+		//	throw new Exception("Matrix is not square.");
+		//}
+		//else;
 		matrixData = elements;
 		
 	}
@@ -137,6 +142,8 @@ public class SquareMatrix {
 	    
 	}
 	
+	
+	
 	public SquareMatrix subtract(SquareMatrix sm2) throws Exception {
 			
 			double columns1 = this.columns(); 
@@ -170,6 +177,8 @@ public class SquareMatrix {
 		}
 		
 	
+	
+	
 	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
 		int columns1 = sm1.columns();
@@ -195,6 +204,8 @@ public class SquareMatrix {
 	    return sm3;   	
 	}
 	
+	
+	
 	public SquareMatrix multiply(SquareMatrix sm2) throws Exception {
 			
 			int columns1 = this.columns();
@@ -219,6 +230,7 @@ public class SquareMatrix {
 		    }
 		    return sm3;
 	}
+	
 	
 	
 	
@@ -250,7 +262,9 @@ public class SquareMatrix {
 		return false;
 	}
 	
-	public static SquareMatrix unit(int size) {	
+	
+	
+	public static SquareMatrix unit(int size) throws Exception {	
 		SquareMatrix unitMatrix = new SquareMatrix(null);
 		double[][] unitData = new double [size][size];
 		for(int i = 0; i < size; i++) {
@@ -260,15 +274,7 @@ public class SquareMatrix {
 		   }
 		unitMatrix = new SquareMatrix (unitData);
 		return unitMatrix;
-		
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	public String toString() {
@@ -285,7 +291,6 @@ public class SquareMatrix {
 	            line = "[";
 	        }
 	return "";
-	
 	}
 		
 		
@@ -302,15 +307,15 @@ public class SquareMatrix {
 		double [][] mat2 = {{1,2},{3,4}};
 		double [][] mat3 = {{5,6},{7,8}};
 		
-		SquareMatrix matrix2 = new SquareMatrix(mat2);
-		SquareMatrix matrix3 = new SquareMatrix(mat3);
 		
 		try {
-		System.out.println("Matrix 1 times Matrix 2 is:");
-		System.out.println(matrix2.multiply(matrix3));
+		SquareMatrix matrix2 = new SquareMatrix(mat2);
+		//SquareMatrix matrix3 = new SquareMatrix(mat3);
+		//System.out.println("Matrix 1 times Matrix 2 is:");
+		//System.out.println(matrix2.add(matrix3));
 		}
 		catch (Exception e) {
-		
+			System.out.println("Error: " +e.getMessage());
 		}
 		
 		
