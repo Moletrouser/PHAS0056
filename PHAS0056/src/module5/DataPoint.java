@@ -10,32 +10,18 @@ public class DataPoint {
 	public DataPoint(double x, double y, double ey) {
 		
 	}
-	
+	// gets the x value
 	public double getX() {
 		return x;
 	}
-
+	// gets the y value
 	public double getY() {
 		return y;
 	}
-	
+	// gets the error on the y value
 	public double getEY() {
 		return ey;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
-	
-
-	
-	}
 	
 }
