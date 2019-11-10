@@ -19,18 +19,19 @@ public class SquareMatrix {
 		matrixData = elements;
 		
 	}
-	
+	// gets the rows of a matric
 	public int rows() {
 		int rows = matrixData.length;
 		return rows;
 	}
 	
-	
+	// gets the columns of a matrix
 	public int columns() {
 		int columns = Array.getLength(matrixData[0]);
 		return columns;
 	}
 	
+	//checks is a matrix is square
 	public boolean checkSquare() {
 		if (this.rows() == this.columns()) {
 			return true;
@@ -41,7 +42,7 @@ public class SquareMatrix {
 	}
 	
 		
-	
+	// adds one square matrix to another (static version)
 	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
 		int columns1 = sm1.columns();
@@ -75,7 +76,7 @@ public class SquareMatrix {
 	}
 	
 	
-	
+	// adds one square matrix to another (non static version) 
 	public SquareMatrix add(SquareMatrix sm2) throws Exception {
 		
 		double columns1 = this.columns(); 
@@ -109,7 +110,7 @@ public class SquareMatrix {
 	}
 	
 	
-	
+	// subtracts one square matrix from another (static version) 
 	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
 		int columns1 = sm1.columns();
@@ -143,7 +144,7 @@ public class SquareMatrix {
 	}
 	
 	
-	
+	// subtracts one square matrix from another (non static version) 
 	public SquareMatrix subtract(SquareMatrix sm2) throws Exception {
 			
 			double columns1 = this.columns(); 
@@ -178,7 +179,7 @@ public class SquareMatrix {
 		
 	
 	
-	
+	// multiplies one matrix by another (static version)
 	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
 		int columns1 = sm1.columns();
@@ -205,7 +206,7 @@ public class SquareMatrix {
 	}
 	
 	
-	
+	// multiplies one matrix by another (non static version)
 	public SquareMatrix multiply(SquareMatrix sm2) throws Exception {
 			
 			int columns1 = this.columns();
@@ -233,7 +234,7 @@ public class SquareMatrix {
 	
 	
 	
-	
+	// checks if one matrix is equal to another
 	public static boolean equals(SquareMatrix sm1, SquareMatrix sm2) {
 		
 		int columns1 = sm1.columns();
@@ -241,6 +242,8 @@ public class SquareMatrix {
 	    int columns2 = sm2.columns();
 	    int rows2 = sm2.rows();
 	    
+	    // if rows and columns of two matrices arent equal, then there is no point checking
+	    // any further - the matrices cannot be equal
 	    if (columns1 != columns2 || rows1 != rows2) {
 	    	return false;
 	    }
@@ -263,7 +266,7 @@ public class SquareMatrix {
 	}
 	
 	
-	
+	// gives the unit matrix of any arbitrary size
 	public static SquareMatrix unit(int size) throws Exception {	
 		SquareMatrix unitMatrix = new SquareMatrix(null);
 		double[][] unitData = new double [size][size];
@@ -276,7 +279,7 @@ public class SquareMatrix {
 		return unitMatrix;
 	}
 	
-	
+	// tells Java how to print matrices, overides the default function
 	public String toString() {
 	        int rows = matrixData.length;
 	        int columns = matrixData[0].length;
@@ -297,39 +300,4 @@ public class SquareMatrix {
 
 	
 	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		
-		double [][] mat1 = {{1,2,3,4,5},{6,7,8,9,10}};
-		double [][] mat2 = {{1,2},{3,4}};
-		double [][] mat3 = {{5,6},{7,8}};
-		
-		
-		try {
-		SquareMatrix matrix2 = new SquareMatrix(mat2);
-		//SquareMatrix matrix3 = new SquareMatrix(mat3);
-		//System.out.println("Matrix 1 times Matrix 2 is:");
-		//System.out.println(matrix2.add(matrix3));
-		}
-		catch (Exception e) {
-			System.out.println("Error: " +e.getMessage());
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
-
 }
