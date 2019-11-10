@@ -14,8 +14,9 @@ public class DataAnalysis {
 	
 	Theory power = new Theory(n);
 	
-	
+	// reads the data from a url into a buffered reader and returns an Array List
 	public static ArrayList<Double> brFromURL (URL url) throws IOException{
+		// initialises the array lists
 		ArrayList<Double> xData = new ArrayList<Double>();
 		ArrayList<String> xData1 = new ArrayList<String>();
 		ArrayList<Double> yData = new ArrayList<Double>();
@@ -43,6 +44,7 @@ public class DataAnalysis {
 		}
 		int i=0;
 		int arrayLength = allData.size();
+		// sorts the data into separate array lists
 		while(i<arrayLength) {
 			if (i%3 == 0) {
 				String temp = allData1.get(i);
@@ -59,6 +61,7 @@ public class DataAnalysis {
 			i++;	
 	    }
 		i = 0;
+		// sorts the data into separate array lists
 		for (i = 0; i < xData1.size(); i++) { 
 		    xData.add(Double.parseDouble(xData1.get(i))); 
 		}
@@ -81,9 +84,10 @@ public class DataAnalysis {
 		}
 	
 		
-	
+	// takes experimental data the degree of polynomial you want to fit to it as inputs and returns Chi squared
 	public static double goodnessOfFit(double n, ArrayList<Double> xData,ArrayList<Double> yData, ArrayList<Double> eyData) {
 		//n = 4;
+		// initialises the arrays for the predictions and residuals
 		ArrayList<Double> yPredict = new ArrayList<Double>();
 		ArrayList<Double> residuals = new ArrayList<Double>();
 		ArrayList<Double> residuals_sqrd = new ArrayList<Double>();
@@ -93,11 +97,13 @@ public class DataAnalysis {
 			double yValue = Math.pow(xData.get(i), n);
 			yPredict.add(yValue);
 		}
+		//calculates the residuals and squares them
 		for (int i=0; i<i_max;i++) {
 			residuals.add(yPredict.get(i) - yData.get(i));
 			residuals_sqrd.add((residuals.get(i))*(residuals.get(i)));
 			chi_array.add(residuals_sqrd.get(i)/eyData.get(i));			
 		}
+		//sums the squared residuals
 		double sum = 0;
 		for(int i = 0; i < residuals_sqrd.size(); i++) {
 		    sum = sum + residuals_sqrd.get(i);
@@ -126,15 +132,16 @@ public class DataAnalysis {
 	public static void main(String[] args) {
 		
 	try {
-		
+		//initialises the array lists
 		ArrayList<Double> xData = new ArrayList<Double>();
 		ArrayList<Double> yData = new ArrayList<Double>();
 		ArrayList<Double> eyData = new ArrayList<Double>();
-		
+		// gives the URL to read the data from
 		URL url = new URL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-xy.txt");
 		ArrayList<Double> allData = brFromURL(url);
 		int i=0;
 		int arrayLength = allData.size();
+		// sorts the data into separate array lists
 		while(i<arrayLength) {
 			if (i%3 == 0) {
 				Double temp = allData.get(i);
@@ -155,7 +162,7 @@ public class DataAnalysis {
 		System.out.println("Chi squared with n=4 equals: " +goodnessOfFit(4, xData, yData, eyData));	
 		System.out.println("The value of Chi squared for n=4 is significantly smaller for n=4 (9 vs 16000) than for n=2 which shows that y=x^4 describes the relationship far better than y=x^2");
 		}
-		catch (Exception e) {
+	catch (Exception e) {
 				
 		}
 					
