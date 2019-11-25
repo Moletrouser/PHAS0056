@@ -101,12 +101,12 @@ public class DataAnalysis {
 		for (int i=0; i<i_max;i++) {
 			residuals.add(yPredict.get(i) - yData.get(i));
 			residuals_sqrd.add((residuals.get(i))*(residuals.get(i)));
-			chi_array.add(residuals_sqrd.get(i)/eyData.get(i));			
+			chi_array.add(residuals_sqrd.get(i)/Math.pow(eyData.get(i),2));			
 		}
 		//sums the squared residuals
 		double sum = 0;
 		for(int i = 0; i < residuals_sqrd.size(); i++) {
-		    sum = sum + residuals_sqrd.get(i);
+		    sum = sum + chi_array.get(i);
 		} 
 		double chi_sqrd = sum;
 		//System.out.println(yPredict);
@@ -164,7 +164,7 @@ public class DataAnalysis {
 		}
 	catch (Exception e) {
 				
-		}
+	}
 					
 	
 

@@ -11,11 +11,13 @@ public class TestSquareMatrix {
 		double [][] matD = {{-4,3},{3,-2}};
 		
 		
+		
 		SquareMatrix matrixA = new SquareMatrix(matA);
 		SquareMatrix matrixB = new SquareMatrix(matB);
 		SquareMatrix matrixC = new SquareMatrix(matC);
 		SquareMatrix matrixD = new SquareMatrix(matD);
 		
+	
 		try {
 		System.out.println("Matrix A plus Matrix B is:");
 		System.out.println(matrixA.add(matrixB));
