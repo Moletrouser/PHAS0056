@@ -8,7 +8,7 @@ public class PowerLawTheory implements Theory {
 		nn = n; 
 	}
 	
-	// calculates the theoretical Y value for the Quadratic theory
+	// calculates the theoretical Y value for the Power Law theory
 	public double y(double x) {
 		double y = Math.pow(x, nn);
 		return y;
