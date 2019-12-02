@@ -72,19 +72,7 @@ public class TestDataPoints {
 		//System.out.println(data);
 		return data;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public static void main(String[] args) {
 		
 	try {	
