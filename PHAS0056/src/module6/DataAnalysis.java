@@ -1,11 +1,13 @@
 package module6;
 
+import java.util.*;
+
 public class DataAnalysis {
 
+Collection<Theory> theories = new ArrayList<Theory>();
+
 	
-	/*
-	private static Theory bestTheory(Collection<DataPoint> data,
-            Collection<Theory> theories, GoodnessOfFitCalculator gofCalculator) {
+	private static Theory bestTheory(ArrayList<DataPoint> data,Collection<Theory> theories, GoodnessOfFitCalculator gofCalculator) {
         boolean first = true;
         double bestGoodnessOfFit = 0.0;
         Theory bestTheory = null;
@@ -22,7 +24,7 @@ public class DataAnalysis {
         }
         return bestTheory;
     }
-	*/
+	
 	
 	
 }
