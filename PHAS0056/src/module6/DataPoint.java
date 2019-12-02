@@ -10,9 +10,8 @@ public class DataPoint {
 	x = this.x;
 	y = this.ey;
 	ey = this.ey;
-		
-		
 	}
+	
 	// gets the x value
 	public double getX() {
 		return x;
@@ -25,7 +24,6 @@ public class DataPoint {
 	public double getEY() {
 		return ey;
 	}
-	
 	
 	public String toString() {
 		return "x = "+x+" y = "+y+" ey = "+ey;
