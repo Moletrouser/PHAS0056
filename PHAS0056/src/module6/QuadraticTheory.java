@@ -21,12 +21,12 @@ public class QuadraticTheory implements Theory {
 
 	// creating a method which will return the name of the theory along with the equation used
 	public String Name() {
-		String Name = "QuadraticTheory : ";
+		String theoryName = "QuadraticTheory : ";
 		String a = Double.toString(aa);
 		String b = Double.toString(bb);
 		String c = Double.toString(cc);
-		String Name1 = Name+"y = "+a+"x^2 + "+b+"x + "+c;
-		return Name1;
+		String fullLabel = theoryName+"y = "+a+"x^2 + "+b+"x + "+c;
+		return fullLabel;
 	}
 
 }
