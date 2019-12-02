@@ -16,12 +16,12 @@ public class ChiSquared implements GoodnessOfFitCalculator {
 		ArrayList<Double> residuals_sqrd = new ArrayList<Double>();
 		ArrayList<Double> chi_array = new ArrayList<Double>();
 		
-		// Collection<DataPoint> data = new ArrayList<DataPoint>();
+		ArrayList<DataPoint> data1 = new ArrayList<DataPoint>();
 		
 		int i_max = data.size();
 		for (int i=0; i<i_max;i++) {
-			double xValue = data.get(i);
-			double yValue = theory.y(data.get(x));
+			double xValue = data1.get(i).getX();
+			double yValue = theory.y(xValue);
 			yPredict.add(yValue);
 		}
 		//calculates the residuals and squares them
