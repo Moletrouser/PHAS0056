@@ -1,10 +1,10 @@
 package module6;
 
-public class Theory {
+public interface Theory {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+	public double y(double x);
+	String Name();	
+	
+	
+	
 }
