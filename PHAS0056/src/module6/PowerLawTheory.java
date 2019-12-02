@@ -16,10 +16,10 @@ public class PowerLawTheory implements Theory {
 
 	// creating a method which will return the name of the theory along with the equation used
 	public String Name() {
-		String Name = "PowerLawTheory : ";
+		String theoryName = "PowerLawTheory : ";
 		String n = Double.toString(nn);;
-		String Name1 = Name +"y = +x^" +n;
-		return Name1;
+		String fullLabel = theoryName +"y = +x^" +n;
+		return fullLabel;
 	}
 
 }
