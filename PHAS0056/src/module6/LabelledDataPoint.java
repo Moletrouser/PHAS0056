@@ -15,5 +15,6 @@ public class LabelledDataPoint extends DataPoint {
 	
 	public String toString() {
 		return "x = "+x+" y = "+y+" ey = "+ey+" label = "+label;
+
 	}
 }

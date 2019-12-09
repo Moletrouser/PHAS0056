@@ -26,9 +26,9 @@ public class ChiSquared implements GoodnessOfFitCalculator {
 		}
 		//calculates the residuals and squares them
 		for (int i=0; i<i_max;i++) {
-			residuals.add(yPredict.get(i) - yData.get(i));
+			//residuals.add(yPredict.get(i) - yData.get(i));
 			residuals_sqrd.add((residuals.get(i))*(residuals.get(i)));
-			chi_array.add(residuals_sqrd.get(i)/Math.pow(eyData.get(i),2));			
+			//chi_array.add(residuals_sqrd.get(i)/Math.pow(eyData.get(i),2));			
 		}
 		//sums the squared residuals
 		double sum = 0;
