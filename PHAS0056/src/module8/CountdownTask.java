@@ -7,47 +7,31 @@ public class CountdownTask implements Runnable{
 	long maxTime;
 	int x;
 	
-	public CountdownTask(int x) {
+	
+	public CountdownTask(int x) { // takes one input x, which is the milliseconds the timer should run for
 		previousTime = System.currentTimeMillis();
 		maxTime = x;
-		//System.out.println(maxTime);
 	}
 
     public void run() {
-    	double elapsedTime = 0;
-    	long startTime = System.currentTimeMillis();
-    	long endTime = currentTime + maxTime;
-    	//System.out.println(maxTime);
-    	//System.out.println(currentTime + " -> " + endTime + " : " + (endTime - currentTime));
-    	while (currentTime < endTime) {
+    	double elapsedTime = 0; // initialises the elapsed time as zero
+    	long startTime = System.currentTimeMillis(); // logs what time the program starts
+    	long endTime = currentTime + maxTime; // calculates when the timer should stop
+    	while (currentTime < endTime) { // loops while there is still time left on the timer
     		currentTime = System.currentTimeMillis();
-    		elapsedTime = (currentTime - startTime) / 1000.0;
-    		System.out.println("Time elapsed is: " + Math.round(elapsedTime) +" seconds");
+    		elapsedTime = (currentTime - startTime) / 1000.0; // calculates the time the program has been running for
+    		System.out.println("Time elapsed is: " + Math.round(elapsedTime) +" seconds"); // prints the elapsed time
     		try {
-    			Thread.sleep(1000);
+    			Thread.sleep(1000); // tells the program to wait 1 second before printing again
     		}
     		catch (InterruptedException e) {
-    			System.out.println("Thread has been interrupted");
-    			
+    			System.out.println("Thread has been interrupted");	
     		}
-    		//previousTime = currentTime;
-    		//boolean isItPrinted = false;
-    			//if ((elapsedTime%1 == 0) && (isItPrinted == false))
-    				//System.out.println("Time elapsed is: " + elapsedTime +" seconds");
-    				//isItPrinted = true;
-    			
+    		// the lines below were a previous attempt at printing the current time
+    		//if ((elapsedTime%1 == 0))
+    			//System.out.println("Time elapsed is: " + elapsedTime +" seconds");
     	}
-    	//System.out.println("Time running in seconds was: " + elapsedTime*1000);
     	return;
     }
     
-	
-
-	public static void main(String[] args) {
-		
-		//System.out.println("The current time is:" +System.currentTimeMillis());
-		
-
-	}
-	
 }
