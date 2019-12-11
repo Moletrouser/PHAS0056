@@ -3,13 +3,11 @@ package module8;
 public class CountdownTask implements Runnable{
 	
 	long currentTime = System.currentTimeMillis();
-	private long previousTime;
 	long maxTime;
 	int x;
 	
 	
 	public CountdownTask(int x) { // takes one input x, which is the milliseconds the timer should run for
-		previousTime = System.currentTimeMillis();
 		maxTime = x;
 	}
 
