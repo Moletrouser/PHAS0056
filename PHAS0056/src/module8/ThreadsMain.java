@@ -17,8 +17,10 @@ public class ThreadsMain extends Thread {
 		thread1.join(); // joins thread 1 to the main thread 
 		thread2.interrupt(); // interrupts the prime number task once the countdown is finished
 		
-		System.out.println("The number of primes found was: " +task2.getPrimes()); // prints the number of primes found
-		//System.out.println(task2.primes);
+		System.out.println("The total number of primes found was: " +task2.getPrimes());// prints the number of primes found
+		System.out.println("The largest prime found was: " +task2.getLastPrime() +" Wow! That's a big prime!"); // prints the largest prime found
+		System.out.println("The largest number checked was: " +task2.getLastChecked() +" Wow! I can't believe it's not prime!");
+
 	}
 
 }

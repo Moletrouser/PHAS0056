@@ -25,9 +25,6 @@ public class CountdownTask implements Runnable{
     		catch (InterruptedException e) {
     			System.out.println("Thread has been interrupted");	
     		}
-    		// the lines below were a previous attempt at printing the current time
-    		//if ((elapsedTime%1 == 0))
-    			//System.out.println("Time elapsed is: " + elapsedTime +" seconds");
     	}
     	return;
     }

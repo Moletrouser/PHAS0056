@@ -40,8 +40,9 @@ public class ThreadsTimer extends Thread {
 		 System.out.println("\n");
 		 System.out.println("Using 4 threads instead of 1 found results of the same level of accuracy");  
 		 System.out.println("However being a Monte Carlo method, the results will differ with each run of the program");  
-		 System.out.println("The most significant difference was in the time taken the find the results");
+		 System.out.println("The most significant difference however was in the time taken the find the results");
 		 System.out.println("With 4 threads finding the results in a little less than a third of the time of 1 thread");
+		 System.out.println("Clearly this is a process that can benefit greatly for parallelisation");
 	}
 
 }

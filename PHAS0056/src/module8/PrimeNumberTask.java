@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class PrimeNumberTask implements Runnable {
 	
+	ArrayList<Integer> checkedNumbers = new ArrayList<Integer>(); // initialises the checked numbers array list
 	ArrayList<Integer> primes = new ArrayList<Integer>(); // initialises the primes array list
 		
 	public boolean isPrime(int n) {
@@ -20,14 +21,14 @@ public class PrimeNumberTask implements Runnable {
 	
 	
 	
-	
-	public void run() {
-        	for(int i = 0; i <= Double.POSITIVE_INFINITY; ++i) {
-        		if (Thread.currentThread().isInterrupted()) return;
-        		if (isPrime(i)) { // checks if a number is prime
-        			primes.add(i); // if it is prime, it is added to an array list 
-        		}
-        	}         	
+	public void run() {	
+    	for(int i = 0; i <= Double.POSITIVE_INFINITY; ++i) {
+    		if (Thread.currentThread().isInterrupted()) return;
+    		if (isPrime(i)) { // checks if a number is prime
+    			primes.add(i); // if it is prime, it is added to an array list 
+    		}
+    		checkedNumbers.add(i); // not the most memory efficient way to do this but meh
+    	}         	
 	}
 	
 	
@@ -35,4 +36,14 @@ public class PrimeNumberTask implements Runnable {
 		return primes.size(); // working correctly and the array list is being populated
 	}
 	
+	public long getLastPrime() { // a simple method that returns the last prime found
+		long lastPrime = primes.get(primes.size() - 1);
+		return lastPrime;
+	}
+		
+	public long getLastChecked() { // a simple method that returns the last prime found
+		long lastChecked = checkedNumbers.get(checkedNumbers.size() - 1);
+		return lastChecked;	
+		
+	}
 }
