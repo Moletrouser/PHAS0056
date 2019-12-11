@@ -14,16 +14,28 @@ public class CountdownTask implements Runnable{
 	}
 
     public void run() {
-    	double elapsedTime = 1;
-    	long currentTime = System.currentTimeMillis();
+    	double elapsedTime = 0;
+    	long startTime = System.currentTimeMillis();
     	long endTime = currentTime + maxTime;
     	//System.out.println(maxTime);
     	//System.out.println(currentTime + " -> " + endTime + " : " + (endTime - currentTime));
     	while (currentTime < endTime) {
     		currentTime = System.currentTimeMillis();
-    		elapsedTime = (currentTime - previousTime) / 1000.0;
-    		previousTime = currentTime;
-    		//System.out.println("Current time in seconds is: " + elapsedTime);
+    		elapsedTime = (currentTime - startTime) / 1000.0;
+    		System.out.println("Time elapsed is: " + Math.round(elapsedTime) +" seconds");
+    		try {
+    			Thread.sleep(1000);
+    		}
+    		catch (InterruptedException e) {
+    			System.out.println("Thread has been interrupted");
+    			
+    		}
+    		//previousTime = currentTime;
+    		//boolean isItPrinted = false;
+    			//if ((elapsedTime%1 == 0) && (isItPrinted == false))
+    				//System.out.println("Time elapsed is: " + elapsedTime +" seconds");
+    				//isItPrinted = true;
+    			
     	}
     	//System.out.println("Time running in seconds was: " + elapsedTime*1000);
     	return;

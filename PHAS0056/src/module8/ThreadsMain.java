@@ -18,7 +18,7 @@ public class ThreadsMain extends Thread {
 		thread2.interrupt();
 		
 		System.out.println(task2.getPrimes());
-		System.out.println(task2.primes);
+		//System.out.println(task2.primes);
 	}
 
 }
