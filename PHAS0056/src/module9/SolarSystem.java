@@ -33,6 +33,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	public double saturnPeriod;
 	
 	ArrayList<Planet> planets;
+	public Planet earth;
 	
 	public static final int delay = 1;
 	public Timer timer;
@@ -42,10 +43,8 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	public SolarSystem (int width, int height) {
 		
 		setPreferredSize(new Dimension(width,height));
-		//timer = new Timer();
+		timer = new Timer(delay, this);
 		timer.start();
-		
-		sunRad = 10;
 		
 		earthPeriod = 10;
 		marsPeriod = 19;
@@ -54,6 +53,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 		mercuryPeriod = 2.5;
 		saturnPeriod = 29;
 		
+		sunRad = 10;
 		earthOrbRad = 140;
 		marsOrbRad = 59;
 		jupiterOrbRad = 450;
@@ -67,6 +67,8 @@ public class SolarSystem extends JPanel implements ActionListener  {
 		venusRad = 10;
 		mercuryRad = 4;
 		saturnRad = 90;
+		
+		centreOfOrbit = new Location(500,500);
 		
 		Planet earth = new Planet("Earth", earthOrbRad, earthPeriod, Color.blue, earthRad, centreOfOrbit);
 		Planet mars = new Planet("Mars", marsOrbRad, marsPeriod, Color.red, marsRad, centreOfOrbit);
@@ -102,11 +104,11 @@ public class SolarSystem extends JPanel implements ActionListener  {
 			g.setColor(Color.black);
 			g.fillRect(0, 0, getWidth(), getHeight());
 			g.setColor(Color.yellow);
-			g.fillOval(centreOfOrbit.x-sunRad,centreOfOrbit.y-sunRad, sunRad*2, sunRad*2);
+			g.fillOval(centreOfOrbit.getX()-sunRad,centreOfOrbit.getY()-sunRad, sunRad*2, sunRad*2);
 		
-			for (Planet planets: planets) {
-				g.setColor(planets.colour);
-				g.fillOval(planets.getLocation().x, planets.getLocation().y, planets.radius, planets.radius);
+			for (Planet i: planets) {
+				g.setColor(i.getColour());
+				g.fillOval(i.getLocation().getX(), i.getLocation().getY(), i.getRad(), i.getRad());
 			}
 			
 			

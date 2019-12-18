@@ -14,6 +14,7 @@ public class Planet {
 	public Location pos;
 	public Location centreOfRotation;
 	double delta;
+	public double delay = 50;
 	double orbitAngle;
 	int radius;
 	Location centreOfOrbit = new Location(500,500);
@@ -26,10 +27,10 @@ public class Planet {
 		this.period = period;
 		this.angularV = 2*(Math.PI/this.period);
 		this.colour = colour;
-		this.pos = new Location(centreOfOrbit.getX(),centreOfOrbit.getY());
+		this.pos = new Location(centreOfOrbit.getX(),centreOfOrbit.getY()+this.orbitRad);
 		this.radius = radius;
-		
-		
+		this.centreOfOrbit = centreOfOrbit;
+		this.delta = 2*Math.PI*this.delay/(this.period*1000);
 	}
 	
 	public int getOrbitCount() {
@@ -40,9 +41,15 @@ public class Planet {
 		return this.orbitRad;
 	}
 	
+	public Color getColour() {
+		return this.colour;
+	}
 	
+	public int getRad() {
+		return this.radius;
+	}
 	
-	private void changeLocation() {
+	public void changeLocation() {
 		
 		this.orbitAngle = orbitAngle + delta;
 		this.pos.setX((int)((Math.cos(this.orbitAngle)*this.orbitRad)+this.centreOfOrbit.getX()));
