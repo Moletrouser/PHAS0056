@@ -7,11 +7,8 @@ import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.Color;
 
-public class SolarSystem extends JPanel /*implements ActionListener */ {
-	
-	public static final int delay = 1;
-	public Timer timer;
-	
+public class SolarSystem extends JPanel implements ActionListener  {
+
 	public int sunRad;
 	public int earthRad;
 	public int marsRad;
@@ -36,6 +33,9 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 	public double saturnPeriod;
 	
 	ArrayList<Planet> planets;
+	
+	public static final int delay = 1;
+	public Timer timer;
 	
 	Location centreOfOrbit = new Location(500,500);
 	

@@ -16,6 +16,7 @@ public class Planet {
 	double delta;
 	double orbitAngle;
 	int radius;
+	Location centreOfOrbit = new Location(500,500);
 	
 	public Planet(String name, int orbitRad, double period, Color colour, int radius, Location centreOfOrbit) {
 		
@@ -24,14 +25,24 @@ public class Planet {
 		this.period = period;
 		this.angularV = 2*(Math.PI/this.period);
 		this.colour = colour;
-		this.pos = new Location(centreOfOrbit.x,centreOfOrbit.y);
+		this.pos = new Location(centreOfOrbit.getX(),centreOfOrbit.getY());
 		this.radius = radius;
 		
 		
 	}
-
+	
+	
+	
+	
+	
+	
+	
 	private void changeLocation() {
+		
 		this.orbitAngle = orbitAngle + delta;
+		
+		this.pos.setX((int)((Math.cos(this.orbitAngle)*this.orbitRad)+this.centreOfOrbit.getX()));
+		this.pos.setY((int)((Math.sin(this.orbitAngle)*this.orbitRad)+this.centreOfOrbit.getY()));
 	}
 
 	public Location getLocation() {
