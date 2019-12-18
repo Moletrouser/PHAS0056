@@ -35,7 +35,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	ArrayList<Planet> planets;
 	public Planet earth;
 	
-	public static final int delay = 1;
+	public static final int delay = 100;
 	public Timer timer;
 	
 	Location centreOfOrbit = new Location(500,500);
@@ -77,6 +77,8 @@ public class SolarSystem extends JPanel implements ActionListener  {
 		Planet mercury = new Planet("Mercury", mercuryOrbRad, mercuryPeriod, Color.darkGray, mercuryRad, centreOfOrbit);
 		Planet saturn = new Planet("Saturn", saturnOrbRad, saturnPeriod, Color.orange, saturnRad, centreOfOrbit);
 	
+		planets = new ArrayList<Planet>();
+		
 		planets.add(earth);
 		planets.add(mars);
 		planets.add(jupiter);
