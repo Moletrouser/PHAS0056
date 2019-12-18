@@ -83,7 +83,19 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 		planets.add(saturn);
 	
 	}
+		
+		public void start() {
+			timer.start();
+		}
 	
+		public void stop() {
+			timer.stop();
+		}
+		
+		public void actionPerformed(ActionEvent e) {
+			repaint();
+		}
+
 		protected void paintComponent(Graphics g) {
 			
 			super.paintComponent(g);
@@ -94,34 +106,11 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 		
 			for (Planet planets: planets) {
 				g.setColor(planets.colour);
-				g.fillOval(planet.getLocation.x, arg1, arg2, arg3);
+				g.fillOval(planets.getLocation().x, planets.getLocation().y, planets.radius, planets.radius);
 			}
 			
 			
 		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

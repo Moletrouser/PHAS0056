@@ -15,6 +15,7 @@ public class Planet {
 	public Location centreOfRotation;
 	double delta;
 	double orbitAngle;
+	int radius;
 	
 	public Planet(String name, int orbitRad, double period, Color colour, int radius, Location centreOfOrbit) {
 		
@@ -24,6 +25,7 @@ public class Planet {
 		this.angularV = 2*(Math.PI/this.period);
 		this.colour = colour;
 		this.pos = new Location(centreOfOrbit.x,centreOfOrbit.y);
+		this.radius = radius;
 		
 		
 	}
