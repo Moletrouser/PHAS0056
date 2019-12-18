@@ -37,6 +37,8 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 	
 	ArrayList<Planet> planets;
 	
+	Location centreOfOrbit = new Location(500,500);
+	
 	public SolarSystem (int width, int height) {
 		
 		setPreferredSize(new Dimension(width,height));
@@ -66,23 +68,44 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 		mercuryRad = 4;
 		saturnRad = 90;
 		
-		Planet earth = new Planet("Earth", earthOrbRad, earthPeriod, Color.blue, earthRad);
-		Planet mars = new Planet("Mars", marsOrbRad, marsPeriod, Color.red, marsRad);
-		Planet jupiter = new Planet("Jupiter", jupiterOrbRad, jupiterPeriod, Color.gray, jupiterRad);
-		Planet venus = new Planet("Venus", venusOrbRad, venusPeriod, Color.cyan, venusRad);
-		Planet mercury = new Planet("Mercury", mercuryOrbRad, mercuryPeriod, Color.darkGray, mercuryRad);
-		Planet saturn = new Planet("Saturn", saturnOrbRad, saturnPeriod, Color.orange, saturnRad);
+		Planet earth = new Planet("Earth", earthOrbRad, earthPeriod, Color.blue, earthRad, centreOfOrbit);
+		Planet mars = new Planet("Mars", marsOrbRad, marsPeriod, Color.red, marsRad, centreOfOrbit);
+		Planet jupiter = new Planet("Jupiter", jupiterOrbRad, jupiterPeriod, Color.gray, jupiterRad, centreOfOrbit);
+		Planet venus = new Planet("Venus", venusOrbRad, venusPeriod, Color.cyan, venusRad, centreOfOrbit);
+		Planet mercury = new Planet("Mercury", mercuryOrbRad, mercuryPeriod, Color.darkGray, mercuryRad, centreOfOrbit);
+		Planet saturn = new Planet("Saturn", saturnOrbRad, saturnPeriod, Color.orange, saturnRad, centreOfOrbit);
 	
-	
-	
-	
-	
-	
-	
-	
-	
+		planets.add(earth);
+		planets.add(mars);
+		planets.add(jupiter);
+		planets.add(venus);
+		planets.add(mercury);
+		planets.add(saturn);
 	
 	}
+	
+		protected void paintComponent(Graphics g) {
+			
+			super.paintComponent(g);
+			g.setColor(Color.black);
+			g.fillRect(0, 0, getWidth(), getHeight());
+			g.setColor(Color.yellow);
+			g.fillOval(centreOfOrbit.x-sunRad,centreOfOrbit.y-sunRad, sunRad*2, sunRad*2);
+		
+			for (Planet planets: planets) {
+				g.setColor(planets.colour);
+				g.fillOval(planet.getLocation.x, arg1, arg2, arg3);
+			}
+			
+			
+		}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -13,15 +13,28 @@ public class Planet {
 	double startAngle = 0;
 	public Location pos;
 	public Location centreOfRotation;
+	double delta;
+	double orbitAngle;
 	
-	public Planet(String name, int orbitRad, double period, Color colour, int radius) {
+	public Planet(String name, int orbitRad, double period, Color colour, int radius, Location centreOfOrbit) {
 		
 		this.orbitRad = orbitRad;
 		this.name = name;
 		this.period = period;
 		this.angularV = 2*(Math.PI/this.period);
 		this.colour = colour;
-		this.pos = new Location(centreOfRotation.x,centreOfRotation.y);
+		this.pos = new Location(centreOfOrbit.x,centreOfOrbit.y);
+		
 		
 	}
+
+	private void changeLocation() {
+		this.orbitAngle = orbitAngle + delta;
+	}
+
+	public Location getLocation() {
+		changeLocation();
+		return this.pos;
+	}
+
 }
