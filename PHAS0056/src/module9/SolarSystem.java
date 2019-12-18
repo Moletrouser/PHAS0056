@@ -11,12 +11,59 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 	public static final int delay = 1;
 	public Timer timer;
 	
+	public int sunRad;
+	public int earthRad;
+	public int marsRad;
+	public int jupiterRad;
+	public int venusRad;
+	public int mercuryRad;
+	public int saturnRad;
+	
+	public int earthOrbRad;
+	public int marsOrbRad;
+	public int jupiterOrbRad;
+	public int venusOrbRad;
+	public int mercuryOrbRad;
+	public int saturnOrbRad;
+	public Location centreOfRotation;
+	
+	public double earthPeriod;
+	public double marsPeriod;
+	public double jupiterPeriod;
+	public double venusPeriod;
+	public double mercuryPeriod;
+	public double saturnPeriod;
+	
+
+	
 	public SolarSystem (int width, int height) {
 		
 		setPreferredSize(new Dimension(width,height));
 		//timer = new Timer();
 		timer.start();
+		
+		radiusSun = 10;
+		
+		
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public static void main(String[] args) {
