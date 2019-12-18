@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.Timer;
+import java.awt.Color;
 
 public class SolarSystem extends JPanel /*implements ActionListener */ {
 	
@@ -34,7 +35,7 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 	public double mercuryPeriod;
 	public double saturnPeriod;
 	
-
+	ArrayList<Planet> planets;
 	
 	public SolarSystem (int width, int height) {
 		
@@ -42,10 +43,45 @@ public class SolarSystem extends JPanel /*implements ActionListener */ {
 		//timer = new Timer();
 		timer.start();
 		
-		radiusSun = 10;
+		sunRad = 10;
 		
+		earthPeriod = 10;
+		marsPeriod = 19;
+		jupiterPeriod = 12;
+		venusPeriod = 6;
+		mercuryPeriod = 2.5;
+		saturnPeriod = 29;
 		
+		earthOrbRad = 140;
+		marsOrbRad = 59;
+		jupiterOrbRad = 450;
+		venusOrbRad = 100;
+		mercuryOrbRad = 55;
+		saturnOrbRad = 1300;
 		
+		earthRad = 10;
+		marsRad = 6;
+		jupiterRad = 110;
+		venusRad = 10;
+		mercuryRad = 4;
+		saturnRad = 90;
+		
+		Planet earth = new Planet("Earth", earthOrbRad, earthPeriod, Color.blue, earthRad);
+		Planet mars = new Planet("Mars", marsOrbRad, marsPeriod, Color.red, marsRad);
+		Planet jupiter = new Planet("Jupiter", jupiterOrbRad, jupiterPeriod, Color.gray, jupiterRad);
+		Planet venus = new Planet("Venus", venusOrbRad, venusPeriod, Color.cyan, venusRad);
+		Planet mercury = new Planet("Mercury", mercuryOrbRad, mercuryPeriod, Color.darkGray, mercuryRad);
+		Planet saturn = new Planet("Saturn", saturnOrbRad, saturnPeriod, Color.orange, saturnRad);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 	
 	

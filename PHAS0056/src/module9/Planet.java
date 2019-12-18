@@ -14,7 +14,7 @@ public class Planet {
 	public Location pos;
 	public Location centreOfRotation;
 	
-	public Planet(String name, int orbitRad, double period, Color colour, int diameter) {
+	public Planet(String name, int orbitRad, double period, Color colour, int radius) {
 		
 		this.orbitRad = orbitRad;
 		this.name = name;
