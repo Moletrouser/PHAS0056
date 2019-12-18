@@ -9,8 +9,9 @@ public class AlgorithmControl {
 	// to integers input imax in steps of size 1
 	public void loop(int imin, int imax) {
 		int i = 0;
-			for (i = imin; i <= imax; i=i+1) {
-				System.out.println(i); }
+		for (i = imin; i <= imax; i=i+1) {
+				System.out.println(i);
+		}
 		return; 
 	}
 	
