@@ -17,6 +17,7 @@ public class Planet {
 	double orbitAngle;
 	int radius;
 	Location centreOfOrbit = new Location(500,500);
+	int orbitCount;
 	
 	public Planet(String name, int orbitRad, double period, Color colour, int radius, Location centreOfOrbit) {
 		
@@ -31,18 +32,26 @@ public class Planet {
 		
 	}
 	
+	public int getOrbitCount() {
+		return this.orbitCount;
+	}
 	
-	
-	
+	public int getOrbitRad() {
+		return this.orbitRad;
+	}
 	
 	
 	
 	private void changeLocation() {
 		
 		this.orbitAngle = orbitAngle + delta;
-		
 		this.pos.setX((int)((Math.cos(this.orbitAngle)*this.orbitRad)+this.centreOfOrbit.getX()));
 		this.pos.setY((int)((Math.sin(this.orbitAngle)*this.orbitRad)+this.centreOfOrbit.getY()));
+		
+		if(this.orbitAngle>2*Math.PI) {
+			this.orbitAngle = this.orbitAngle%(2*Math.PI);
+			orbitCount = orbitCount + 1;
+		}
 	}
 
 	public Location getLocation() {
