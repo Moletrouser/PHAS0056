@@ -111,6 +111,8 @@ public class SolarSystem extends JPanel implements ActionListener  {
 			for (Planet i: planets) {
 				g.setColor(i.getColour());
 				g.fillOval(i.getLocation().getX(), i.getLocation().getY(), i.getRad(), i.getRad());
+				g.setColor(Color.lightGray);
+				g.drawOval(centreOfOrbit.getX()-i.getOrbitRad(), centreOfOrbit.getY()-i.getOrbitRad(),2*i.getOrbitRad(),2*i.getOrbitRad());
 			}
 			
 			
