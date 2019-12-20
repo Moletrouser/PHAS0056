@@ -132,7 +132,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 				
 				g.setColor(i.colour);
 				if(i.name=="Earth") {
-				g.drawChars(earthNameArr,0,earthNameArr.length,earth.getLocation().getX()+20, earth.getLocation().getY()+15);
+				g.drawChars(i.name().toCharArray(),0,earthNameArr.length,i.getLocation().getX()+20, i.getLocation().getY()+15);
 				
 				}
 			

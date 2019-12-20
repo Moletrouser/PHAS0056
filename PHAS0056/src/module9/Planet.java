@@ -33,6 +33,10 @@ public class Planet {
 		this.delta = 2*Math.PI*this.delay/(this.period*1000);
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public int getOrbitCount() {
 		return this.orbitCount;
 	}
