@@ -31,6 +31,14 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	public double venusPeriod;
 	public double mercuryPeriod;
 	public double saturnPeriod;
+		
+	char[] earthNameArr;
+	char[] marsNameArr;
+	char[] jupiterNameArr;
+	char[] venusNameArr;
+	char[] mercuryNameArr;
+	char[] saturnNameArr;
+	
 	
 	ArrayList<Planet> planets;
 	public Planet earth;
@@ -67,6 +75,13 @@ public class SolarSystem extends JPanel implements ActionListener  {
 		venusRad = 10;
 		mercuryRad = 4;
 		saturnRad = 20;
+		
+		char[] earthNameArr = {'E','a','r','t','h'};
+		char[] marsNameArr = {'M','a','r','s'};
+		char[] jupiterNameArr = {'J','u','p','i','t','e','r'};
+		char[] venusNameArr = {'V','e','n','u','s'};
+		char[] mercuryNameArr = {'M','e','r','c','u','r','y'};
+		char[] saturnNameArr = {'S','a','t','u','r','n'};
 		
 		centreOfOrbit = new Location(500,500);
 		
@@ -114,9 +129,15 @@ public class SolarSystem extends JPanel implements ActionListener  {
 				g.fillOval(i.getLocation().getX(), i.getLocation().getY(), i.getRad(), i.getRad());
 				g.setColor(Color.lightGray);
 				g.drawOval(centreOfOrbit.getX()-i.getOrbitRad()+i.getRad()/2, centreOfOrbit.getY()-i.getOrbitRad()+i.getRad()/2,2*i.getOrbitRad()+i.getRad()/8,2*i.getOrbitRad()+i.getRad()-i.getRad());
+				
+				g.setColor(i.colour);
+				if(i.name=="Earth") {
+				g.drawChars(earthNameArr,0,earthNameArr.length,earth.getLocation().getX()+20, earth.getLocation().getY()+15);
+				
+				}
+			
+			
 			}
-			
-			
 		}
 	
 	
