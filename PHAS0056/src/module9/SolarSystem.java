@@ -43,6 +43,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	Font courier = new Font("Courier", Font.BOLD, 22);
 	
 	ArrayList<Planet> planets;
+	ArrayList<Comet> comets;
 	public Planet earth;
 	
 	public static final int delay = 50;
@@ -94,7 +95,11 @@ public class SolarSystem extends JPanel implements ActionListener  {
 		Planet mercury = new Planet("Mercury", mercuryOrbRad, mercuryPeriod, Color.magenta, mercuryRad, centreOfOrbit);
 		Planet saturn = new Planet("Saturn", saturnOrbRad, saturnPeriod, Color.orange, saturnRad, centreOfOrbit);
 	
+		Comet halleys = new Comet("Halley's Comet", 0.7, 300, Color.red, 10, centreOfOrbit, 30);
+		Comet haleBopp = new Comet("Hale-Bopp", 0.9, 450, Color.green, 5, centreOfOrbit, 20);
+		
 		planets = new ArrayList<Planet>();
+		comets = new ArrayList<Comet>();
 		
 		planets.add(earth);
 		planets.add(mars);
@@ -102,7 +107,9 @@ public class SolarSystem extends JPanel implements ActionListener  {
 		planets.add(venus);
 		planets.add(mercury);
 		planets.add(saturn);
-	
+		
+		comets.add(halleys);
+		comets.add(haleBopp);
 	}
 		
 		public void start() {
@@ -134,6 +141,15 @@ public class SolarSystem extends JPanel implements ActionListener  {
 				g.setColor(Color.magenta);
 				g.drawChars(i.getName().toCharArray(),0,i.getName().length(),i.getLocation().getX()-20, i.getLocation().getY()-15);
 				
+			}
+			
+			for (Comet j: comets) {
+				g.setColor(j.getColour());
+				g.fillOval(j.getLocation().getX(), j.getLocation().getY(), j.getSize(), j.getSize());
+			//	g.setColor(Color.lightGray);
+			//	g.drawOval(centreOfOrbit.getX()-j.getOrbitRad()+j.getRad()/2, centreOfOrbit.getY()-j.getOrbitRad()+i.getRad()/2,2*j.getOrbitRad()+j.getRad()/8,2*j.getRad()+j.getRad()-j.getRad());
+			//	g.setColor(Color.magenta);
+			//	g.drawChars(j.getName().toCharArray(),0,j.getName().length(),j.getLocation().getX()-20, j.getLocation().getY()-15);
 			}
 			
 			g.setFont(courier);
