@@ -14,7 +14,7 @@ public class Planet {
 	public Location pos;
 	public Location centreOfRotation;
 	double delta;
-	public double delay = 50;
+	public double delay = 10;
 	double orbitAngle;
 	int radius;
 	Location centreOfOrbit = new Location(500,500);
@@ -30,7 +30,8 @@ public class Planet {
 		this.pos = new Location(centreOfOrbit.getX(),centreOfOrbit.getY()+this.orbitRad);
 		this.radius = radius;
 		this.centreOfOrbit = centreOfOrbit;
-		this.delta = 2*Math.PI*this.delay/(this.period*1000);
+		this.delta = 2*Math.PI*this.delay/(this.period*800);
+		
 	}
 	
 	public String getName() {

@@ -43,7 +43,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	ArrayList<Planet> planets;
 	public Planet earth;
 	
-	public static final int delay = 25;
+	public static final int delay = 50;
 	public Timer timer;
 	
 	Location centreOfOrbit = new Location(500,500);
@@ -129,16 +129,14 @@ public class SolarSystem extends JPanel implements ActionListener  {
 				g.fillOval(i.getLocation().getX(), i.getLocation().getY(), i.getRad(), i.getRad());
 				g.setColor(Color.lightGray);
 				g.drawOval(centreOfOrbit.getX()-i.getOrbitRad()+i.getRad()/2, centreOfOrbit.getY()-i.getOrbitRad()+i.getRad()/2,2*i.getOrbitRad()+i.getRad()/8,2*i.getOrbitRad()+i.getRad()-i.getRad());
-				
-				g.setColor(i.colour);
-				if(i.name=="Earth") {
-				g.drawChars(i.name().toCharArray(),0,earthNameArr.length,i.getLocation().getX()+20, i.getLocation().getY()+15);
+				g.setColor(Color.magenta);
+				g.drawChars(i.getName().toCharArray(),0,i.getName().length(),i.getLocation().getX()+20, i.getLocation().getY()+15);
 				
 				}
 			
 			
-			}
 		}
+		
 	
 	
 	
