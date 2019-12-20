@@ -40,6 +40,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	char[] saturnNameArr;
 	int orbitCount;
 	
+	Font courier = new Font("Courier", Font.BOLD, 22);
 	
 	ArrayList<Planet> planets;
 	public Planet earth;
@@ -135,11 +136,12 @@ public class SolarSystem extends JPanel implements ActionListener  {
 				
 			}
 			
+			g.setFont(courier);
 			g.setColor(Color.magenta);
-			g.drawString("The time elapsed in earth years is: ", 800, 100);
-			g.drawString(Integer.toString(earth.getOrbitCount()), 995, 100);
-			g.drawString(Integer.toString(earth.getOrbitCount()), 770,115);
-			g.drawString("year(s) closer to the inevitable heat death of the universe", 780,115);
+			g.drawString("The time elapsed in earth years is: ", 290, 70);
+			g.drawString(Integer.toString(earth.getOrbitCount()), 760, 70);
+			g.drawString(Integer.toString(earth.getOrbitCount()), 145,950);
+			g.drawString("year(s) closer to the inevitable heat death of the universe.", 170,950);
 			
 			
 		}
