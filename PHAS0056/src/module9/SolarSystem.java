@@ -118,6 +118,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 
 		protected void paintComponent(Graphics g) {
 			
+			Planet earth = planets.get(0);
 			super.paintComponent(g);
 			g.setColor(Color.black);
 			g.fillRect(0, 0, getWidth(), getHeight());
@@ -135,8 +136,10 @@ public class SolarSystem extends JPanel implements ActionListener  {
 			}
 			
 			g.setColor(Color.magenta);
-			g.drawString("The time elapsed in earth years is: ", 800, 800);
-			g.drawString(Integer.toString(earth.getOrbitCount()), 800, 750);
+			g.drawString("The time elapsed in earth years is: ", 800, 100);
+			g.drawString(Integer.toString(earth.getOrbitCount()), 995, 100);
+			g.drawString(Integer.toString(earth.getOrbitCount()), 770,115);
+			g.drawString("year(s) closer to the inevitable heat death of the universe", 780,115);
 			
 			
 		}
@@ -153,8 +156,8 @@ public class SolarSystem extends JPanel implements ActionListener  {
 				
 				JFrame frame = new JFrame("Solar System");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setSize(1000,1000);
-				JPanel panel = new SolarSystem(1000,1000);
+				frame.setSize(1200,1200);
+				JPanel panel = new SolarSystem(1500,1000);
 
 				frame.add(panel);
 				frame.setVisible(true);
