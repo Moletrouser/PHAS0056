@@ -40,7 +40,7 @@ public class Comet {
 		double trueAnomaly = Math.atan((Math.sqrt((1 + eccentricity)/(1 - eccentricity)))*Math.tan(eccentricAnomaly/2))*2;
 		double radius = (majorAx * (1-Math.pow(eccentricity, 2)))/(1 + eccentricity*Math.cos(trueAnomaly));
 		t = t + 0.1;
-		return new Location(centreOfOrbit.getX()+(int)(radius*Math.cos(trueAnomaly)), centreOfOrbit.getY() + (int)(radius*Math.sin(trueAnomaly)));
+		return new Location(centreOfOrbit.getX()-(int)(radius*Math.cos(trueAnomaly)), centreOfOrbit.getY() - (int)(radius*Math.sin(trueAnomaly)));
 	}
 	
 	public double getMeanAnomaly() {
