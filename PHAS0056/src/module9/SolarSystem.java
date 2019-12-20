@@ -38,6 +38,7 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	char[] venusNameArr;
 	char[] mercuryNameArr;
 	char[] saturnNameArr;
+	int orbitCount;
 	
 	
 	ArrayList<Planet> planets;
@@ -104,7 +105,6 @@ public class SolarSystem extends JPanel implements ActionListener  {
 	}
 		
 		public void start() {
-			System.out.println("Earth rad is:" +earthRad);
 			timer.start();
 		}
 	
@@ -130,9 +130,13 @@ public class SolarSystem extends JPanel implements ActionListener  {
 				g.setColor(Color.lightGray);
 				g.drawOval(centreOfOrbit.getX()-i.getOrbitRad()+i.getRad()/2, centreOfOrbit.getY()-i.getOrbitRad()+i.getRad()/2,2*i.getOrbitRad()+i.getRad()/8,2*i.getOrbitRad()+i.getRad()-i.getRad());
 				g.setColor(Color.magenta);
-				g.drawChars(i.getName().toCharArray(),0,i.getName().length(),i.getLocation().getX()+20, i.getLocation().getY()+15);
+				g.drawChars(i.getName().toCharArray(),0,i.getName().length(),i.getLocation().getX()-20, i.getLocation().getY()-15);
 				
-				}
+			}
+			
+			g.setColor(Color.magenta);
+			g.drawString("The time elapsed in earth years is: ", 800, 800);
+			g.drawString(Integer.toString(earth.getOrbitCount()), 800, 750);
 			
 			
 		}
