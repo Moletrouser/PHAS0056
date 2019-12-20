@@ -12,19 +12,27 @@ public class Comet {
 	public double period;
 	public Location centreOfOrbit;
 	public double t;
+	double pericenter;
+	double avgRateOfSweep;
+	double timeAtPericenter;
+	double meanAnomoly;
 	
-	public Comet (String name, double eccentricity, int majorAx, Color colour, int radius, Location centreOfOrbit, double period ) {
+			
+	public Comet (String name, double eccentricity, int majorAx, Color colour, int radius, Location centreOfOrbit, double period, double avgRateOfSweep, double t, double timeAtPericenter) {
 		
 		this.name = name;
 		this.radius = radius;
 		this.centreOfOrbit = centreOfOrbit;
 		this.eccentricity = eccentricity;
 		this.majorAx = majorAx;
-		
+		this.meanAnomoly = this.avgRateOfSweep*(this.t - this.timeAtPericenter);
 		
 	}
 
-
+	public double getMeanAnomoly() {
+		return this.meanAnomoly;
+	}
+	
 	
 	public String getName() {
 		return this.name;
